@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, Dimensions, SafeAreaView, ImageBackground, Image, StatusBar, Animated } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, Dimensions, SafeAreaView, ImageBackground, Image, StatusBar, Animated, FlatList } from 'react-native';
 import React, { Component } from 'react'
 import { useState, useEffect, useRef } from 'react';
 
@@ -7,15 +7,34 @@ import { useState, useEffect, useRef } from 'react';
 const widthWindow = Dimensions.get('window').width;
 const heightWindow = Dimensions.get('window').height;
 
+// constructor(props) {
+//     super(props)
+//     this.state = {Books: [], isLoading = true}
+// };
+
+// componentDidMount() {
+//     const url = 'https://gist.githubusercontent.com/hanatashiyuna/296227bd13838d1d50c65e234a55c2cf/raw/2ab0a5c8f22f68aa6acae5f441594077fa274853/books.json';
+//     return fetch(url)
+//     .then((response) =>response.json)
+//     .then((responseJson)=>{
+//         this.setState({
+//             Books:responseJson.books,
+//         })
+//     })
+//     .catch((error)=>{
+//         console.error(error);
+//     })
+// };
+
 function HomeActivity({navigation}) {
-    
     return (
         <SafeAreaView style={style.main_project}>
             <StatusBar hidden={false} backgroundColor='#FBF8F2' barStyle="dark-content"/>
                 <View style={style.main_view}>
-                    <Text style={{color:'black'}}>
-                        Hi
-                    </Text>
+                    <FlatList
+                        // data={this.state.Books}
+                        // renderItem={({item, index})=><Books />} 
+                    />
                 </View>
        </SafeAreaView>
     );

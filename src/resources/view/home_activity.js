@@ -2,7 +2,7 @@
 import { StyleSheet, Text, View, TouchableOpacity, TextInput, Dimensions, SafeAreaView, ImageBackground, Image, StatusBar, Animated } from 'react-native';
 import React, { Component } from 'react'
 import { useState, useEffect, useRef } from 'react';
-
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 const widthWindow = Dimensions.get('window').width;
 const heightWindow = Dimensions.get('window').height;

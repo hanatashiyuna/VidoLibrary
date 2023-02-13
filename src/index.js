@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
+import Icon from 'react-native-vector-icons/FontAwesome';
 //Màng hình chờ
 
 import SplashActivity from './resources/view/splash_activity';
@@ -34,10 +34,10 @@ function BottomBar() {
       tabBarInactiveBackgroundColor: 'white',
       tabBarStyle: {backgroundColor: 'white', height:55 }}}>
         <Tab.Screen name="Home" options={{
-          tabBarLabel: 'Trang Chủ',
-          // tabBarIcon: ({ color }) => (
-          //     <Icon name="map-marker-alt" color={color} size={20} />
-          // )
+          tabBarLabel: '',
+          tabBarIcon: ({ color }) => (
+              <Icon name="home" color={color} size={30} />
+          )
       }}  component={HomeActivity} />
       {/* <Tab.Screen name="Transfer" options={{
           tabBarLabel: 'Di chuyển',

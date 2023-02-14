@@ -3,72 +3,79 @@
     {
       "id": "1",
       "title": "IT book",
-      "description": "",
+      "description": "This is a book! Can you read this?",
       "image": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
       "author": "Yuna",
       "status": "borrow",
       "quantity": 4,
-      "like": 999
+      "like": 999,
+      "rating": 5
     },
     {
       "id": "2",
       "title": "Marketing book",
-      "description": "",
+      "description": "This is a book! Can you read this?",
       "image": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
       "author": "Luna",
       "status": "borrow",
       "quantity": 4,
-      "like": 1001
+      "like": 1001,
+      "rating": 3
     },
     {
       "id": "3",
       "title": "Design Book",
-      "description": "",
+      "description": "This is a book! Can you read this?",
       "image": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
       "author": "Luna",
       "status": "borrow",
       "quantity": 4,
-      "like": 101
+      "like": 101,
+      "rating": 4
     },
     {
         "id": "4",
         "title": "Design Book",
-        "description": "",
+        "description": "This is a book! Can you read this?",
         "image": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
         "author": "Luna",
         "status": "borrow",
         "quantity": 4,
-        "like": 1
+        "like": 1,
+        "rating": 0
     },
     {
         "id": "5",
         "title": "Design Book",
-        "description": "",
+        "description": "This is a book! Can you read this?",
         "image": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
         "author": "Luna",
         "status": "borrow",
         "quantity": 4,
-        "like": 10
+        "like": 10,
+        "rating": 1
     },
     {
         "id": "6",
         "title": "Design Book",
-        "description": "",
+        "description": "This is a book! Can you read this?",
         "image": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
         "author": "Luna",
         "status": "borrow",
         "quantity": 4,
-        "like": 109
+        "like": 109,
+        "rating": 2
     },
     {
         "id": "7",
         "title": "Design Book",
-        "description": "",
+        "description": "This is a book! Can you read this?",
         "image": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
         "author": "Luna",
         "status": "borrow",
         "quantity": 4,
-        "like": 1022
+        "like": 1022,
+        "rating": 4
     }
   ]
 }

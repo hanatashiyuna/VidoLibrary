@@ -1,21 +1,61 @@
 /* eslint-disable prettier/prettier */
-import { StyleSheet, Text, View, TouchableOpacity, TextInput, Dimensions, SafeAreaView, ImageBackground, Image, StatusBar, Animated } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, TextInput, Dimensions, SafeAreaView, ImageBackground, Image, StatusBar, Animated, FlatList, ScrollView } from 'react-native';
 import React, { Component } from 'react'
 import { useState, useEffect, useRef } from 'react';
-
+import Icon from 'react-native-vector-icons/FontAwesome';
+import data from '../data/books.json';
 
 const widthWindow = Dimensions.get('window').width;
 const heightWindow = Dimensions.get('window').height;
 
 function HomeActivity({navigation}) {
-    
+
+    // const [data, setData] = useState([]);
+
+    // useEffect(() => {
+    //     fetch('https://gist.githubusercontent.com/hanatashiyuna/296227bd13838d1d50c65e234a55c2cf/raw/2ab0a5c8f22f68aa6acae5f441594077fa274853/books.json')
+    //     .then((response) => response.json())
+    //     .then((json) => setData(json))
+    //     .catch((error) => console.error(error));
+    // }, []);
+
+    // const renderItem = ({ bookItem }) => (
+    //     <View style={{backgroundColor: 'blue', width: '100%', height: 200}}>
+    //       <Image source={{ uri: bookItem.image }} style={{ width: 50, height: 50 }} />
+    //       <Text style={{color: 'black'}}>{bookItem.title}</Text>
+    //     </View>
+    //   );
+
     return (
         <SafeAreaView style={style.main_project}>
             <StatusBar hidden={false} backgroundColor='#FBF8F2' barStyle="dark-content"/>
                 <View style={style.main_view}>
-                    <Text style={{color:'black'}}>
-                        Hi
-                    </Text>
+                    <View style={[style.header_view, style.flex_row]}>
+                        <View style={[style.header_logo, style.flex_row]}>
+                            <Image style={[style.image, style.logo]} source={{uri: 'https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg'}} />
+                            <Text style={style.header_logo_text}>Vido Library</Text>
+                        </View>
+                        <View style={[style.header_icon, style.flex_row]}>
+                            <Icon name="bell" size={25} color="#000" />
+                            <Icon name="search" size={25} color="#000" />
+                        </View>
+                    </View>
+                    <View style={style.banner}></View>
+                    <View style={[style.list_book]}>
+                        {data.map((e, index)=>
+                            <ScrollView 
+                            scrollEnabled={true}
+                            horizontal={true}
+                            showsHorizontalScrollIndicator={true}
+                            showsVerticalScrollIndicator={true}>
+                                <TouchableOpacity key={e} style={[style.flex_row, style.list_book_item]}>
+                                    <Image style={{width: 80, height: 90}} source={{uri: data[index].image}}/>
+                                    <Text style={{color: 'black'}}>{data[index].title} </Text>
+                                    <Text style={{color: 'black'}}>design by {data[index].author}</Text>
+                                </TouchableOpacity>
+                            </ScrollView>
+                        )}
+                    </View>
                 </View>
        </SafeAreaView>
     );
@@ -32,6 +72,7 @@ const style = StyleSheet.create({
         width: widthWindow, 
         height: heightWindow,
         position:'relative',
+        display: 'flex',
     },
 
     infor_name: {
@@ -40,18 +81,18 @@ const style = StyleSheet.create({
         position:'relative', 
         flexDirection:"row", 
         justifyContent:"center",
-        alignItems:"center"
+        alignItems:"center",
     },
 
     name_logo: {
         width:200, 
         height:200,
-        alignItems:"center"
+        alignItems:"center",
     },
 
     detail_logo: {
         width:200, 
-        height:200
+        height:200,
     },
 
     detail_name: {
@@ -85,6 +126,64 @@ const style = StyleSheet.create({
         color:"#27B1FC", 
     },
 
+    header_view: {
+        justifyContent: 'space-between',
+        margin: 20,
+        alignItems: 'center'
+    },
+
+    flex_row: {
+        display: 'flex',
+        flexDirection: 'row',
+    },
+
+    header_logo: {
+        width: '35%',
+        alignItems: 'center'
+    },
+
+    header_logo_text: {
+        color: 'black',
+        marginLeft: 5,
+        marginRight: 5,
+    },
+
+    header_text: {
+    },
+
+    header_icon: {
+        width: '20%',
+        justifyContent: 'space-between',
+    },
+
+    banner: {
+        height: '30%',
+        backgroundColor: 'green',
+        marginLeft: 20,
+        marginRight: 20,
+        borderRadius: 10,
+    },
+
+    list_book: {
+        width: 'auto',
+        height: 'auto',
+        marginLeft: 20,
+        marginRight: 20,
+        marginTop: 20,
+    },
+
+    image: {
+        width: 40,
+        height: 40
+    },
+
+    logo: {
+        borderRadius: 50,
+    },
+
+    list_book_item: {
+        alignItems: 'center'
+    }
 })
 
 export default HomeActivity

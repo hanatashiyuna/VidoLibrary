@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-
+import Icon from 'react-native-vector-icons/FontAwesome';
 //Màng hình chờ
 
 import SplashActivity from './resources/view/splash_activity';
@@ -28,16 +28,34 @@ const Tab = createBottomTabNavigator();
 
 function BottomBar() {
     return (
-      <Tab.Navigator screenOptions={{headerShown: false, tabBarActiveTintColor: 'black',
+      <Tab.Navigator screenOptions={{headerShown: false, tabBarActiveTintColor: '#f6b26b',
       tabBarActiveBackgroundColor: 'white',
       tabBarInactiveTintColor: 'gray',
       tabBarInactiveBackgroundColor: 'white',
       tabBarStyle: {backgroundColor: 'white', height:55 }}}>
         <Tab.Screen name="Home" options={{
-          tabBarLabel: 'Trang Chủ',
-          // tabBarIcon: ({ color }) => (
-          //     <Icon name="map-marker-alt" color={color} size={20} />
-          // )
+          tabBarLabel: '',
+          tabBarIcon: ({ color }) => (
+              <Icon name="home" color={color} size={30} />
+          )
+      }}  component={HomeActivity} />
+        <Tab.Screen name="storage" options={{
+          tabBarLabel: '',
+          tabBarIcon: ({ color }) => (
+              <Icon name="bookmark" color={color} size={30} />
+          )
+      }}  component={HomeActivity} />
+        <Tab.Screen name="a" options={{
+          tabBarLabel: '',
+          tabBarIcon: ({ color }) => (
+            <Icon name="book" color={color} size={30} />
+        )
+      }}  component={HomeActivity} />
+        <Tab.Screen name="c" options={{
+          tabBarLabel: '',
+          tabBarIcon: ({ color }) => (
+            <Icon name="user" color={color} size={30} />
+        )
       }}  component={HomeActivity} />
       {/* <Tab.Screen name="Transfer" options={{
           tabBarLabel: 'Di chuyển',
@@ -55,7 +73,7 @@ function RootComponent({}) {
     return (
         <NavigationContainer>
         {/* Rest of your app code */}
-          <Stack.Navigator initialRouteName="SplashActivity" screenOptions={{headerShown: false}}>
+          <Stack.Navigator initialRouteName="HomeActivity" screenOptions={{headerShown: false}}>
             <Stack.Screen name="SplashActivity" component={SplashActivity} />
             <Stack.Screen name="LoginActivity" component={LoginActivity} />
             <Stack.Screen name="RegisterActivity" component={RegisterActivity} />

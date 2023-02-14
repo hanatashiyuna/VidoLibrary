@@ -28,7 +28,7 @@ const Tab = createBottomTabNavigator();
 
 function BottomBar() {
     return (
-      <Tab.Navigator screenOptions={{headerShown: false, tabBarActiveTintColor: 'black',
+      <Tab.Navigator screenOptions={{headerShown: false, tabBarActiveTintColor: '#f6b26b',
       tabBarActiveBackgroundColor: 'white',
       tabBarInactiveTintColor: 'gray',
       tabBarInactiveBackgroundColor: 'white',
@@ -38,6 +38,24 @@ function BottomBar() {
           tabBarIcon: ({ color }) => (
               <Icon name="home" color={color} size={30} />
           )
+      }}  component={HomeActivity} />
+        <Tab.Screen name="storage" options={{
+          tabBarLabel: '',
+          tabBarIcon: ({ color }) => (
+              <Icon name="bookmark" color={color} size={30} />
+          )
+      }}  component={HomeActivity} />
+        <Tab.Screen name="a" options={{
+          tabBarLabel: '',
+          tabBarIcon: ({ color }) => (
+            <Icon name="book" color={color} size={30} />
+        )
+      }}  component={HomeActivity} />
+        <Tab.Screen name="c" options={{
+          tabBarLabel: '',
+          tabBarIcon: ({ color }) => (
+            <Icon name="user" color={color} size={30} />
+        )
       }}  component={HomeActivity} />
       {/* <Tab.Screen name="Transfer" options={{
           tabBarLabel: 'Di chuyển',
@@ -55,7 +73,7 @@ function RootComponent({}) {
     return (
         <NavigationContainer>
         {/* Rest of your app code */}
-          <Stack.Navigator initialRouteName="SplashActivity" screenOptions={{headerShown: false}}>
+          <Stack.Navigator initialRouteName="HomeActivity" screenOptions={{headerShown: false}}>
             <Stack.Screen name="SplashActivity" component={SplashActivity} />
             <Stack.Screen name="LoginActivity" component={LoginActivity} />
             <Stack.Screen name="RegisterActivity" component={RegisterActivity} />

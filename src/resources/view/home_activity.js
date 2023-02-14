@@ -3,10 +3,14 @@ import { StyleSheet, Text, View, TouchableOpacity, TextInput, Dimensions, SafeAr
 import React, { Component } from 'react'
 import { useState, useEffect, useRef } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import data from '../data/books.json';
+import IconIonicons from 'react-native-vector-icons/Ionicons';
+import data from '../data/data.json';
 
 const widthWindow = Dimensions.get('window').width;
 const heightWindow = Dimensions.get('window').height;
+
+const fetch = data.books.sort((a, b) => b.like - a.like);
+const bookWithMostLikes = fetch[0];
 
 function HomeActivity({navigation}) {
     return (
@@ -32,22 +36,30 @@ function HomeActivity({navigation}) {
                         </View>
                     </View>
                     <View style={style.banner}>
+                        <ImageBackground source={{uri: bookWithMostLikes.image}} style={[style.banner_background]}/>
+                        <View style={[style.banner_icon]}>
+                            <IconIonicons name="bookmarks-outline" size={30} color="#fff" />
+                        </View>
+                        <View style={[style.banner_title]}>
+
+                        </View>
                     </View>
                     <View style={[style.list_book]}>
+                        <Text style={style.list_book_title}>Popular Books</Text>
                         <ScrollView
                         scrollEnabled={true}
                         showsHorizontalScrollIndicator={true}
                         showsVerticalScrollIndicator={true}
                         >
-                            {data.map((e, index)=>
+                            {data.books.map((e, index)=>
                                 <TouchableOpacity
                                     key={index}
-                                    onPress={() => console.log("Button " + index + " pressed!")}>
+                                    onPress={() => console.log("Item " + index + " pressed!")}>
                                     <View style={[style.flex_row, style.list_book_item]}>
-                                        <Image style={{width: 80, height: 90}} source={{uri: data[index].image}}/>
+                                        <Image style={[style.list_book_image]} source={{uri: data.books[index].image}}/>
                                         <View>
-                                            <Text style={{color: 'black'}}>{data[index].title} </Text>
-                                            <Text style={{color: 'black'}}>Like: {data[index].like}</Text>
+                                            <Text style={[style.list_book_details]}>{data.books[index].title} </Text>
+                                            <Text style={[style.list_book_details]}>Like: {data.books[index].like}</Text>
                                         </View>
                                     </View>
                                 </TouchableOpacity>
@@ -155,11 +167,42 @@ const style = StyleSheet.create({
     },
 
     banner: {
+        position: 'relative',
         height: '30%',
-        backgroundColor: 'green',
         marginLeft: 20,
         marginRight: 20,
         borderRadius: 10,
+        overflow: 'hidden'
+    },
+
+    banner_background: {
+        position: 'absolute',
+        top: 0,
+        width: '100%',
+        height: '100%'
+    },
+
+    banner_icon: {
+        display: 'flex',
+        position: 'absolute',
+        top: 10,
+        right: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'rgba(122, 122, 122, 0.9)',
+        width: '14%',
+        height: '19%',
+        borderRadius: 10,
+    },
+
+    banner_title: {
+        display: 'flex',
+        position: 'absolute',
+        bottom: 0,
+        backgroundColor: 'rgba(122, 122, 122, 0.8)',
+        width: '100%',
+        height: 90,
+        
     },
 
     list_book: {
@@ -180,7 +223,26 @@ const style = StyleSheet.create({
     },
 
     list_book_item: {
-        alignItems: 'center'
+        alignItems: 'center',
+        marginBottom: 10
+    },
+
+    list_book_title: {
+        marginBottom: 10,
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: 'black'
+    },
+
+    list_book_image: {
+        width: 80,
+        height: 90,
+        borderRadius: 5
+    },
+
+    list_book_details: {
+        color: 'black',
+        marginLeft: 15,
     }
 })
 

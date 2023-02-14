@@ -4,18 +4,22 @@ import React, { Component } from 'react'
 import { useState, useEffect, useRef } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
+
 const widthWindow = Dimensions.get('window').width;
 const heightWindow = Dimensions.get('window').height;
 
+
 function HomeActivity({navigation}) {
+
+   
     
     return (
         <SafeAreaView style={style.main_project}>
             <StatusBar hidden={false} backgroundColor='#FBF8F2' barStyle="dark-content"/>
                 <View style={style.main_view}>
-                    <Text style={{color:'black'}}>
-                        Hi
-                    </Text>
+               
+                
+
                 </View>
        </SafeAreaView>
     );

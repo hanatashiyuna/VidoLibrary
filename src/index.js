@@ -16,6 +16,12 @@ import LoginActivity from './resources/view/login_activity';
 
 import RegisterActivity from './resources/view/register_activity';
 
+import ConfirmID from './resources/view/confirmid_activity';
+
+import AccuracyActivity from './resources/view/accuracy_activity';
+
+import AccuracyRegisterActivity from './resources/view/accuracy_register_activity';
+
 //Màng hình trang chủ
 
 import HomeActivity from './resources/view/home_activity';
@@ -78,8 +84,9 @@ function RootComponent({}) {
             <Stack.Screen name="LoginActivity" component={LoginActivity} />
             <Stack.Screen name="RegisterActivity" component={RegisterActivity} />
             <Stack.Screen name="HomeActivity" component={BottomBar} />
-           
-
+            <Stack.Screen name="ConfirmID" component={ConfirmID} />
+            <Stack.Screen name="AccuracyActivity" component={AccuracyActivity} />
+            <Stack.Screen name="AccuracyRegisterActivity" component={AccuracyRegisterActivity} />
             {/* <Stack.Screen name="AroundMap" component={AroundMap} />
             <Stack.Screen name="LocationDetail" component={LocationDetail} /> */}
   

@@ -2,105 +2,75 @@
 import { StyleSheet, Text, View, TouchableOpacity, TextInput, Dimensions, SafeAreaView, ImageBackground, Image, StatusBar, Animated } from 'react-native';
 import React, { Component } from 'react'
 import { useState, useEffect, useRef } from 'react';
-import SplashActivity from './splash_activity';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 
 const widthWindow = Dimensions.get('window').width;
 const heightWindow = Dimensions.get('window').height;
 
-function LoginActivity({navigation}) {
-    
+function ConfirmID({route, navigation}) {
+    const [getFirshName, setFirshName] = useState('');
+    const [getName, setName] = useState('');
     const [getEmail, setEmail] = useState('');
+    const [getPasword, setPasword] = useState('');
     const [checked, setchecked] = useState(false);
+
+   
     // code set hide password
     const[getPasswordVisible, setPasswordVisible] = useState(false);
-
-    useEffect(() => {
-        // if (navigation.goBack()) {
-        //     console.log("kaka")
-        // }
-    }, [])
-
     return (
         <SafeAreaView style={style.main_project}>
             <StatusBar hidden={false} backgroundColor='#FBF8F2' barStyle="dark-content"/>
                 <View style={style.main_view}>
                 <Image style={{position:'absolute', bottom:-500, left:-300}} source={require('../../public/drawble/img/Group33.png')}/>
-                
                 <View style={{marginTop:0.2*widthWindow, width:'100%', height:'auto', alignItems: 'center'}}>
-                  <Image source={require('../../public/drawble/icon/MaskGroup1.png')} style={{width:100, height:100}} />
+                  <Image source={require('../../public/drawble/img/MaskGroup1.png')} style={{width:100, height:100}} />
                   <Text style={{fontSize:25, fontStyle:'normal', color: '#F38320', fontWeight:'bold', marginTop: 20}}>CAO ĐẲNG VIỄN ĐÔNG</Text>
                 </View>
 
-                <View style={{width: '100%', height: 150, paddingStart: 20, paddingEnd: 20,  marginTop: 0.08* heightWindow}}>
+                <View style={{width: '100%', height: 100, paddingStart: 20, paddingEnd: 20,  marginTop: 0.08* heightWindow}}>
                   <Text style={{ color: '#459173', fontSize:20, fontWeight:'bold', marginBottom:30}}>
-                    Đăng Nhập
+                    Quên Mật Khẩu
                   </Text>
                   <View style={{width: '90%', height: 40, flexDirection:'row'}}>
-                    {/* <Icon style={{marginTop: 10}} name="mail" size={24}/> */}
+                    <Icon style={{marginTop: 10}} name="mail" size={24}/>
                     <TextInput style={{ color: 'black', width: '100%', height:'100%', marginStart:10, fontSize:14, borderBottomWidth: 1, borderBottomColor: 'gray' }}
                       autoCapitalize = 'none' 
                       value={getEmail}
                       onChangeText = {setEmail}
                       placeholder="Email"
                     />
-
-                    
-                  </View>
-                  <View style={{width: '93%', height: 40, flexDirection:'row', marginTop:20}}>
-                    {/* <Icon style={{marginTop: 10}} name="lock" size={24} /> */}
-                    <View style={{width: '100%', height: '100%', flexDirection:'row', borderBottomWidth: 1, borderBottomColor: 'gray', paddingRight:0}}>
-                      <TextInput style={{ color: 'black', width: '90%', height:'100%', marginStart:10, fontSize:14 }}
-                        autoCapitalize = 'none' 
-                        secureTextEntry={getPasswordVisible? false: true}
-                        placeholder="Mật Khẩu"
-                      /> 
-                      <TouchableOpacity style={{width:30, height:40}}
-                      onPress={() => {
-                          setPasswordVisible(!getPasswordVisible);
-                      }}>{
-                        getPasswordVisible?
-                        <Image source={require('../../public/drawble/img/hidden_eye_icon.png')} style={{width:'100%', height:'100%'}}  resizeMode="contain"/>
-                        : 
-                        <Image source={require('../../public/drawble/img/eye_icon.png')} style={{width:'100%', height:'100%'}}  resizeMode="contain"/>
-                      }
-                       
-                      </TouchableOpacity> 
-                      
-                    </View>
-                    
                   </View>
                 </View>
-                
-                
-
                 {/* set forgot pass and hide pass */}
-                <View style={{ alignItems:'flex-end', marginEnd: 20, marginTop: 15}}>
+                <View style={{ alignItems:'flex-end', marginEnd: 20, marginTop: 10}}>
                   <TouchableOpacity
                   onPress = {() => {
-                    navigation.navigate('ConfirmID');
+                    navigation.navigate('LoginActivity');
                     // navigation.navigate('ComFirmID', {
                     //   email: getEmail
                     // });
                   }}>
                       <Text style={{color:'#F38320'}}>
-                        Quên Mật Khẩu?
+                        Đăng Nhập
                       </Text>
                   </TouchableOpacity>
                 </View>
                 {/* Submit login */}
-                <View style={{ width:'100%', height: 130,marginTop: 0.15*heightWindow}}>
+                <View style={{ width:'100%', height: 130,marginTop: 0.2*heightWindow}}>
                   <View style={{width:'100%', height:'auto', alignItems:'center'}}>
                     <TouchableOpacity style={{ alignItems: 'center', justifyContent:'center', width:'95%',height:60, backgroundColor:'#F38320', borderRadius:10}}
                     onPress = {() => {
-                      navigation.navigate('HomeActivity');
-                      // navigation.navigate('ComFirmID', {
-                      //   email: getEmail
-                      // });
+                      //navigation.navigate('AccuracyActivity');
+                      if (getEmail != '') {
+                        navigation.navigate('AccuracyActivity', {
+                            email: getEmail
+                          });
+                      }
                     }}
                     >
-                        <Text style={{fontSize:25, color:'white'}}>
-                            Đăng Nhập 
+                        <Text style={{fontSize:20, color:'white'}}>
+                          GỬI MÃ XÁC NHẬN
                         </Text>
                     </TouchableOpacity>
 
@@ -190,4 +160,4 @@ const style = StyleSheet.create({
 
 })
 
-export default LoginActivity
+export default ConfirmID

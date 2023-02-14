@@ -32,7 +32,7 @@ function RegisterActivity({navigation}) {
                   <View style={{width: '100%', height:40, flexDirection:'row', justifyContent:'space-between'}}>
                     <View style={{width:'40%', height:40, flexDirection:'row'}}>
                     {/* <Icon style={{marginTop: 10}} name="person" size={24}/> */}
-                      <TextInput style={{ color: 'black', width: '100%', height:40, marginStart:10, fontSize:14, borderBottomWidth: 1, borderBottomColor: 'gray' }}
+                      <TextInput style={{ color: 'black', width: '100%', height:40, paddingStart:10, fontSize:14, borderBottomWidth: 1, borderBottomColor: 'gray' }}
                         autoCapitalize = 'none' 
                         value={getFirshName}
                         onChangeText = {setFirshName}
@@ -52,9 +52,9 @@ function RegisterActivity({navigation}) {
                     </View>
                   </View>
                   
-                  <View style={{width: '90%', height: 40, flexDirection:'row'}}>
+                  <View style={{width: '98%', height: 40, flexDirection:'row', borderBottomWidth: 1, borderBottomColor: 'gray'}}>
                     {/* <Icon style={{marginTop: 10}} name="mail" size={24}/> */}
-                    <TextInput style={{ color: 'black', width: '100%', height:'100%', marginStart:10, fontSize:14, borderBottomWidth: 1, borderBottomColor: 'gray' }}
+                    <TextInput style={{ color: 'black', width: '100%', height:'100%', marginStart:10, fontSize:14 }}
                       autoCapitalize = 'none' 
                       value={getEmail}
                       onChangeText = {setEmail}
@@ -63,9 +63,9 @@ function RegisterActivity({navigation}) {
 
                     
                   </View>
-                  <View style={{width: '93%', height: 40, flexDirection:'row', marginTop:20}}>
+                  <View style={{width: '98%', height: 40, flexDirection:'row', marginTop:20,  borderBottomWidth: 1, borderBottomColor: 'gray', paddingRight:0}}>
                     {/* <Icon style={{marginTop: 10}} name="lock" size={24} /> */}
-                    <View style={{width: '100%', height: 40, flexDirection:'row', borderBottomWidth: 1, borderBottomColor: 'gray', paddingRight:0}}>
+                    <View style={{width: '100%', height: 40, flexDirection:'row'}}>
                       <TextInput style={{ color: 'black', width: '90%', height:40, marginStart:10, fontSize:14 }}
                         autoCapitalize = 'none' 
                         onChangeText = {setPasword}
@@ -94,28 +94,18 @@ function RegisterActivity({navigation}) {
                   <View style={{width:'100%', height:'auto', alignItems:'center'}}>
                     <TouchableOpacity style={{ alignItems: 'center', justifyContent:'center', width:'95%',height:60, backgroundColor:'#F38320', borderRadius:10}}
                     onPress = {() => {
-                       navigation.navigate('Accuracy'
+                       if (getEmail != "" &&
+                        getFirshName != "" &&
+                        getName != "" &&
+                        getPasword != "" ) {
+                        navigation.navigate('AccuracyRegisterActivity'
                        ,{
                         email: getEmail,
-                        hashcode: getEmail.split("@"),
-                        otp:  Math.floor((Math.random() * 1000) + 1000),
-                        timeotp: (60*5 +30),
-                        id:String(Math.floor((Math.random() * 1000) + 1000))
+                        firshname: getFirshName,
+                        lastname: getName,
+                        pass: getPasword
                       });
-                      // client.send(
-                      //   {
-                      //     text: 'i hope this works',
-                      //     from: 'you <hanatashiyuna2507@gmail.com>',
-                      //     to: 'someone <tranminhtan4869@gmail.com>',
-                      //     subject: 'testing emailjs',
-                      //   },
-                      //   (err, message) => {
-                      //     console.log(err || message);
-                      //   }
-                      // );
-
-                     
-
+                       }
                     }}
                     >
                         <Text style={{fontSize:25, color:'white'}}>

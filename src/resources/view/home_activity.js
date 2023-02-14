@@ -9,23 +9,6 @@ const widthWindow = Dimensions.get('window').width;
 const heightWindow = Dimensions.get('window').height;
 
 function HomeActivity({navigation}) {
-
-    // const [data, setData] = useState([]);
-
-    // useEffect(() => {
-    //     fetch('https://gist.githubusercontent.com/hanatashiyuna/296227bd13838d1d50c65e234a55c2cf/raw/2ab0a5c8f22f68aa6acae5f441594077fa274853/books.json')
-    //     .then((response) => response.json())
-    //     .then((json) => setData(json))
-    //     .catch((error) => console.error(error));
-    // }, []);
-
-    // const renderItem = ({ bookItem }) => (
-    //     <View style={{backgroundColor: 'blue', width: '100%', height: 200}}>
-    //       <Image source={{ uri: bookItem.image }} style={{ width: 50, height: 50 }} />
-    //       <Text style={{color: 'black'}}>{bookItem.title}</Text>
-    //     </View>
-    //   );
-
     return (
         <SafeAreaView style={style.main_project}>
             <StatusBar hidden={false} backgroundColor='#FBF8F2' barStyle="dark-content"/>
@@ -36,25 +19,40 @@ function HomeActivity({navigation}) {
                             <Text style={style.header_logo_text}>Vido Library</Text>
                         </View>
                         <View style={[style.header_icon, style.flex_row]}>
-                            <Icon name="bell" size={25} color="#000" />
-                            <Icon name="search" size={25} color="#000" />
+                            <TouchableOpacity
+                            onPress={()=>console.log('bell press')}
+                            >
+                                <Icon name="bell" size={25} color="#000" />
+                            </TouchableOpacity>
+                            <TouchableOpacity
+                            onPress={()=>console.log('search press')}
+                            >
+                                <Icon name="search" size={25} color="#000" />
+                            </TouchableOpacity>
                         </View>
                     </View>
-                    <View style={style.banner}></View>
+                    <View style={style.banner}>
+                    </View>
                     <View style={[style.list_book]}>
-                        {data.map((e, index)=>
-                            <ScrollView 
-                            scrollEnabled={true}
-                            horizontal={true}
-                            showsHorizontalScrollIndicator={true}
-                            showsVerticalScrollIndicator={true}>
-                                <TouchableOpacity key={e} style={[style.flex_row, style.list_book_item]}>
-                                    <Image style={{width: 80, height: 90}} source={{uri: data[index].image}}/>
-                                    <Text style={{color: 'black'}}>{data[index].title} </Text>
-                                    <Text style={{color: 'black'}}>design by {data[index].author}</Text>
+                        <ScrollView
+                        scrollEnabled={true}
+                        showsHorizontalScrollIndicator={true}
+                        showsVerticalScrollIndicator={true}
+                        >
+                            {data.map((e, index)=>
+                                <TouchableOpacity
+                                    key={index}
+                                    onPress={() => console.log("Button " + index + " pressed!")}>
+                                    <View style={[style.flex_row, style.list_book_item]}>
+                                        <Image style={{width: 80, height: 90}} source={{uri: data[index].image}}/>
+                                        <View>
+                                            <Text style={{color: 'black'}}>{data[index].title} </Text>
+                                            <Text style={{color: 'black'}}>Like: {data[index].like}</Text>
+                                        </View>
+                                    </View>
                                 </TouchableOpacity>
-                            </ScrollView>
-                        )}
+                            )}
+                        </ScrollView>
                     </View>
                 </View>
        </SafeAreaView>
@@ -166,7 +164,7 @@ const style = StyleSheet.create({
 
     list_book: {
         width: 'auto',
-        height: 'auto',
+        height: '51%',
         marginLeft: 20,
         marginRight: 20,
         marginTop: 20,

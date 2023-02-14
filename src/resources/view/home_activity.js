@@ -9,23 +9,6 @@ const widthWindow = Dimensions.get('window').width;
 const heightWindow = Dimensions.get('window').height;
 
 function HomeActivity({navigation}) {
-
-    // const [data, setData] = useState([]);
-
-    // useEffect(() => {
-    //     fetch('https://gist.githubusercontent.com/hanatashiyuna/296227bd13838d1d50c65e234a55c2cf/raw/2ab0a5c8f22f68aa6acae5f441594077fa274853/books.json')
-    //     .then((response) => response.json())
-    //     .then((json) => setData(json))
-    //     .catch((error) => console.error(error));
-    // }, []);
-
-    // const renderItem = ({ bookItem }) => (
-    //     <View style={{backgroundColor: 'blue', width: '100%', height: 200}}>
-    //       <Image source={{ uri: bookItem.image }} style={{ width: 50, height: 50 }} />
-    //       <Text style={{color: 'black'}}>{bookItem.title}</Text>
-    //     </View>
-    //   );
-
     return (
         <SafeAreaView style={style.main_project}>
             <StatusBar hidden={false} backgroundColor='#FBF8F2' barStyle="dark-content"/>

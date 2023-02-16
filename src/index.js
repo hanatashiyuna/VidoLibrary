@@ -26,11 +26,39 @@ import AccuracyRegisterActivity from './resources/view/accuracy_register_activit
 
 import HomeActivity from './resources/view/home_activity';
 
+// QR code
+
+import QRActivity from './resources/view/qr_activity';
+
 const widthWindow = Dimensions.get('window').width;
 const heightWindow = Dimensions.get('window').height;
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
+
+const CustomTabBarButton = ({children, onPress}) => (
+  <TouchableOpacity style={{
+    top: -30,
+    justifyContent:'center',
+    width:70,
+    height:70,
+    borderRadius:50,
+    borderWidth:4,
+    borderColor:'#FBF8F2'
+    // borderColor:'red'
+
+  }}
+  onPress= {onPress}>
+    <View style={{
+      width:'100%',
+      height:'100%',
+      backgroundColor:'#F38320',
+      borderRadius:35
+    }}>
+      {children}
+    </View>
+  </TouchableOpacity>
+)
 
 function BottomBar() {
     return (
@@ -51,6 +79,22 @@ function BottomBar() {
               <Icon name="bookmark" color={color} size={30} />
           )
       }}  component={HomeActivity} />
+
+      <Tab.Screen name="QRActivity" component={QRActivity} 
+        options={{
+          tabBarStyle: { display: "none" },
+          tabBarLabel:'',
+          tabBarIcon:({focused}) =>(
+            <View style={{paddingTop:15}}>
+              <Icon  name="qrcode" size={30} color="white"/>
+            </View>
+          ), 
+          tabBarButton: (props) => (
+            <CustomTabBarButton {...props}/>
+          )
+          }}
+       />
+
         <Tab.Screen name="a" options={{
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (
@@ -87,8 +131,8 @@ function RootComponent({}) {
             <Stack.Screen name="ConfirmID" component={ConfirmID} />
             <Stack.Screen name="AccuracyActivity" component={AccuracyActivity} />
             <Stack.Screen name="AccuracyRegisterActivity" component={AccuracyRegisterActivity} />
-            {/* <Stack.Screen name="AroundMap" component={AroundMap} />
-            <Stack.Screen name="LocationDetail" component={LocationDetail} /> */}
+            <Stack.Screen name="QRActivity" component={QRActivity} />
+            {/* <Stack.Screen name="AroundMap" component={AroundMap} /> */}
   
           </Stack.Navigator>
         </NavigationContainer>

@@ -5,12 +5,13 @@ import { useState, useEffect, useRef } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import IconIonicons from 'react-native-vector-icons/Ionicons';
 import data from '../data/data.json';
+import StarRating from '../models/rating';
 
 const widthWindow = Dimensions.get('window').width;
 const heightWindow = Dimensions.get('window').height;
 
-const fetch = data.books.sort((a, b) => b.like - a.like);
-const bookWithMostLikes = fetch[0];
+const fetch = data.books.sort((a, b) => b.rating - a.rating);
+const bookWithMostRatings = fetch[0];
 
 function HomeActivity({navigation}) {
     return (
@@ -36,12 +37,19 @@ function HomeActivity({navigation}) {
                         </View>
                     </View>
                     <View style={style.banner}>
-                        <ImageBackground source={{uri: bookWithMostLikes.image}} style={[style.banner_background]}/>
+                        <ImageBackground source={{uri: bookWithMostRatings.image}} style={[style.banner_background]}/>
                         <View style={[style.banner_icon]}>
                             <IconIonicons name="bookmarks-outline" size={30} color="#fff" />
                         </View>
-                        <View style={[style.banner_title]}>
-
+                        <View style={[style.banner_title, style.flex_row]}>
+                            <View style={[style.flex_column, style.banner_title_item]}>
+                                <Text style={[style.banner_title_item_text]}>{bookWithMostRatings.title}</Text>
+                                <Text style={[style.banner_title_item_text]}>{bookWithMostRatings.description}</Text>
+                            </View>
+                            <View style={[style.flex_column]}>
+                                <Text style={[style.banner_title_item_text]}>{bookWithMostRatings.author}</Text>
+                                <StarRating ratings={bookWithMostRatings.rating}/>
+                            </View>
                         </View>
                     </View>
                     <View style={[style.list_book]}>
@@ -60,6 +68,7 @@ function HomeActivity({navigation}) {
                                         <View>
                                             <Text style={[style.list_book_details]}>{data.books[index].title} </Text>
                                             <Text style={[style.list_book_details]}>Like: {data.books[index].like}</Text>
+                                            <Text style={[style.list_book_details]}><StarRating ratings={data.books[index].rating}/></Text>
                                         </View>
                                     </View>
                                 </TouchableOpacity>
@@ -147,6 +156,11 @@ const style = StyleSheet.create({
         flexDirection: 'row',
     },
 
+    flex_column: {
+        display: 'flex',
+        flexDirection: 'column',
+    },
+
     header_logo: {
         width: '35%',
         alignItems: 'center'
@@ -199,10 +213,20 @@ const style = StyleSheet.create({
         display: 'flex',
         position: 'absolute',
         bottom: 0,
-        backgroundColor: 'rgba(122, 122, 122, 0.8)',
+        justifyContent: 'space-between',
+        backgroundColor: 'rgba(122, 122, 122, 0.6)',
         width: '100%',
-        height: 90,
-        
+        height: '30%',
+        padding: 10,
+    },
+
+    banner_title_item: {
+        display: 'flex',
+        justifyContent: 'center',
+    },
+
+    banner_title_item_text: {
+        color: '#fff',
     },
 
     list_book: {

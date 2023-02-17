@@ -124,7 +124,7 @@ function RootComponent({}) {
     return (
         <NavigationContainer>
         {/* Rest of your app code */}
-          <Stack.Navigator initialRouteName="SplashActivity" screenOptions={{headerShown: false}}>
+          <Stack.Navigator initialRouteName="HomeActivity" screenOptions={{headerShown: false}}>
             <Stack.Screen name="SplashActivity" component={SplashActivity} />
             <Stack.Screen name="LoginActivity" component={LoginActivity} />
             <Stack.Screen name="RegisterActivity" component={RegisterActivity} />

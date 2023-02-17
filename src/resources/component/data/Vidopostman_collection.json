@@ -1,0 +1,1852 @@
+{
+	"info": {
+		"_postman_id": "85f73d0d-4aaf-416c-a555-edf4c767cb0c",
+		"name": "Vido",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17453418"
+	},
+	"item": [
+		{
+			"name": "GiangVien",
+			"item": [
+				{
+					"name": "timetable",
+					"item": [
+						{
+							"name": "tkb theo ngày",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{GVToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{domainS}}/giangvien/tkbtheongay?ngay=2022-11-30",
+									"host": [
+										"{{domainS}}"
+									],
+									"path": [
+										"giangvien",
+										"tkbtheongay"
+									],
+									"query": [
+										{
+											"key": "ngay",
+											"value": "2022-11-30"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "tkb theo tuần",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{GVToken}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{domainS}}/giangvien/tkbtheotuan?tungay=2021-09-07&denngay=2021-09-21",
+									"host": [
+										"{{domainS}}"
+									],
+									"path": [
+										"giangvien",
+										"tkbtheotuan"
+									],
+									"query": [
+										{
+											"key": "tungay",
+											"value": "2021-09-07"
+										},
+										{
+											"key": "denngay",
+											"value": "2021-09-21"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "attendance",
+					"item": [
+						{
+							"name": "diemdanh/danhsach",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{GVToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tkbid\": 286304,\r\n    \"lopid\": 21996,\r\n    \"gvid\": 675,\r\n    \"phongid\": 112,\r\n    \"ngayid\": 4,\r\n    \"ngay\": \"2022-11-30T00:00:00.000Z\",\r\n    \"thoigianbd\": \"06:40\",\r\n    \"thoigiankt\": \"1970-01-01T09:00:00.000Z\",\r\n    \"dkid\": null,\r\n    \"baonghiyn\": null,\r\n    \"dkghichu\": null,\r\n    \"buoi\": \"S\",\r\n    \"loaitkb\": \"tkb\",\r\n    \"lmhid\": 21996,\r\n    \"lmhma\": \"GEP32_221_2TH225_HOCLAI\",\r\n    \"mhma\": \"2TH225\",\r\n    \"mhten\": \"Lập trình cơ sở - Python\",\r\n    \"phongma\": \"C1_Q12\",\r\n    \"phongten\": \"Curie 1\",\r\n    \"phongghichu\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domainS}}/giangvien/diemdanh/danhsach",
+									"host": [
+										"{{domainS}}"
+									],
+									"path": [
+										"giangvien",
+										"diemdanh",
+										"danhsach"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "diemdanh/luudiemdanh",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{GVToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tkb\": {\r\n        \"tkbid\": 286304,\r\n        \"lopid\": 21996,\r\n        \"gvid\": 675,\r\n        \"phongid\": 112,\r\n        \"ngayid\": 4,\r\n        \"ngay\": \"2022-11-30T00:00:00.000Z\",\r\n        \"thoigianbd\": \"06:40\",\r\n        \"thoigiankt\": \"1970-01-01T09:00:00.000Z\",\r\n        \"dkid\": null,\r\n        \"baonghiyn\": null,\r\n        \"dkghichu\": null,\r\n        \"buoi\": \"S\",\r\n        \"loaitkb\": \"tkb\",\r\n        \"lmhid\": 21996,\r\n        \"lmhma\": \"GEP32_221_2TH225_HOCLAI\",\r\n        \"mhma\": \"2TH225\",\r\n        \"mhten\": \"Lập trình cơ sở - Python\",\r\n        \"phongma\": \"C1_Q12\",\r\n        \"phongten\": \"Curie 1\",\r\n        \"phongghichu\": null\r\n    },\r\n    \"hocviens\": [\r\n        {\r\n            \"mshv\": \"1506020008\",\r\n            \"hiendienyn\": true\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/giangvien/diemdanh/luu",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"giangvien",
+										"diemdanh",
+										"luu"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{GVToken}}",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tkbid\": 286302,\r\n    \"lopid\": 20779,\r\n    \"gvid\": 675,\r\n    \"phongid\": 112,\r\n    \"ngayid\": 4,\r\n    \"ngay\": \"2022-11-30T00:00:00.000Z\",\r\n    \"thoigianbd\": \"06:40\",\r\n    \"thoigiankt\": \"1970-01-01T09:00:00.000Z\",\r\n    \"dkid\": null,\r\n    \"baonghiyn\": null,\r\n    \"dkghichu\": null,\r\n    \"buoi\": \"S\",\r\n    \"loaitkb\": \"tkb\",\r\n    \"lmhid\": 20779,\r\n    \"lmhma\": \"GEP32_221_2TH225_16THC_16MMC_N1\",\r\n    \"mhma\": \"2TH225\",\r\n    \"mhten\": \"Lập trình cơ sở - Python\",\r\n    \"phongma\": \"C1_Q12\",\r\n    \"phongten\": \"Curie 1\",\r\n    \"phongghichu\": null\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/giangvien/diemdanh/xoa/184978",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"giangvien",
+										"diemdanh",
+										"xoa",
+										"184978"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "danhsachlop",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{GVToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domainS}}/giangvien/danhsachlop?hockyid=62",
+							"host": [
+								"{{domainS}}"
+							],
+							"path": [
+								"giangvien",
+								"danhsachlop"
+							],
+							"query": [
+								{
+									"key": "hockyid",
+									"value": "62"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lichthi",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{GVToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/giangvien/lichthi?tungay=2021-01-01&denngay=2021-12-01",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"giangvien",
+								"lichthi"
+							],
+							"query": [
+								{
+									"key": "tungay",
+									"value": "2021-01-01"
+								},
+								{
+									"key": "denngay",
+									"value": "2021-12-01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "lichthi/danhsach",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{GVToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domainS}}/giangvien/lichthi/danhsach?lichthiid=10770",
+							"host": [
+								"{{domainS}}"
+							],
+							"path": [
+								"giangvien",
+								"lichthi",
+								"danhsach"
+							],
+							"query": [
+								{
+									"key": "lichthiid",
+									"value": "10770"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "decuong",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{GVToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domainServer}}/giangvien/lopmonhoc/decuong?monhocid=792",
+							"host": [
+								"{{domainServer}}"
+							],
+							"path": [
+								"giangvien",
+								"lopmonhoc",
+								"decuong"
+							],
+							"query": [
+								{
+									"key": "monhocid",
+									"value": "792"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tongquan",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{GVToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/giangvien/lopmonhoc/tongquan?lmhid=16760",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"giangvien",
+								"lopmonhoc",
+								"tongquan"
+							],
+							"query": [
+								{
+									"key": "lmhid",
+									"value": "16760"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "danhsachhocvien",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{GVToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/giangvien/danhsachhocvien?lopmonhocid=16760",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"giangvien",
+								"danhsachhocvien"
+							],
+							"query": [
+								{
+									"key": "lopmonhocid",
+									"value": "16760"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "camthi",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{GVToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\":706920, \"ghichu\": \"Không đủ buổi học\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/giangvien/camthi",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"giangvien",
+								"camthi"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "dangkylichday",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{GVToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domainServer}}/giangvien/dangkylichday?ngaybd=2019-09-01",
+							"host": [
+								"{{domainServer}}"
+							],
+							"path": [
+								"giangvien",
+								"dangkylichday"
+							],
+							"query": [
+								{
+									"key": "ngaybd",
+									"value": "2019-09-01"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tkbbaonghi",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{GVToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"ngay\": \"2019-09-07\", \"tkbid\": 14731, \"ghichu\": \"Việt báo nghỉ 5\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/giangvien/dangkylichday/baonghi",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"giangvien",
+								"dangkylichday",
+								"baonghi"
+							],
+							"query": [
+								{
+									"key": "ngay",
+									"value": "2019-09-07",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "tkbdaybu",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{GVToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"ngay\": \"2019-09-09\", \"lmhid\": 8271, \"ghichu\": \"Dạy bù 01\",\r\n\"phongid\": 1, \"tietbdid\": 1, \"tietktid\": 3\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/giangvien/dangkylichday/daybu",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"giangvien",
+								"dangkylichday",
+								"daybu"
+							],
+							"query": [
+								{
+									"key": "ngay",
+									"value": "2019-09-07",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "thoikhoabieuhocky",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{GVToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domainS}}/giangvien/tkbtheohocky?hockyid=62",
+							"host": [
+								"{{domainS}}"
+							],
+							"path": [
+								"giangvien",
+								"tkbtheohocky"
+							],
+							"query": [
+								{
+									"key": "hockyid",
+									"value": "62"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "danhsachphongtrong",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{GVToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/giangvien/phongtrong?ngay=2019-09-09&tgbatdau=07:30&tgketthuc=10:30",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"giangvien",
+								"phongtrong"
+							],
+							"query": [
+								{
+									"key": "ngay",
+									"value": "2019-09-09"
+								},
+								{
+									"key": "tgbatdau",
+									"value": "07:30"
+								},
+								{
+									"key": "tgketthuc",
+									"value": "10:30"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "diemdanh/danhsachtonghop",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{GVToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domainS}}/giangvien/diemdanh/danhsachtonghop?lopid=16760",
+							"host": [
+								"{{domainS}}"
+							],
+							"path": [
+								"giangvien",
+								"diemdanh",
+								"danhsachtonghop"
+							],
+							"query": [
+								{
+									"key": "lopid",
+									"value": "16760"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "diemdanh/hocvien/chitiet",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{GVToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/giangvien/diemdanh/hocvien/chitiet?lopid=16762&hocvienid=11848",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"giangvien",
+								"diemdanh",
+								"hocvien",
+								"chitiet"
+							],
+							"query": [
+								{
+									"key": "lopid",
+									"value": "16762"
+								},
+								{
+									"key": "hocvienid",
+									"value": "11848"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "diemdanh/lopmonhoc/danhsachbuoihoc",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{GVToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/giangvien/diemdanh/lopmonhoc/danhsachbuoihoc?lopid=16762",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"giangvien",
+								"diemdanh",
+								"lopmonhoc",
+								"danhsachbuoihoc"
+							],
+							"query": [
+								{
+									"key": "lopid",
+									"value": "16762"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "HocVien",
+			"item": [
+				{
+					"name": "LopMonHoc",
+					"item": [
+						{
+							"name": "lopmonhoc",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{domainS}}/hocvien/lopmonhoc?hockyid=62",
+									"host": [
+										"{{domainS}}"
+									],
+									"path": [
+										"hocvien",
+										"lopmonhoc"
+									],
+									"query": [
+										{
+											"key": "hockyid",
+											"value": "62"
+										}
+									]
+								},
+								"description": "Truyền theo ngày muốn xem TKB, mặc định sẽ là ngày hiện tại"
+							},
+							"response": []
+						},
+						{
+							"name": "lopmonhoc/tkb",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{domainS}}/hocvien/lopmonhoc/tkb?lmhid=16792",
+									"host": [
+										"{{domainS}}"
+									],
+									"path": [
+										"hocvien",
+										"lopmonhoc",
+										"tkb"
+									],
+									"query": [
+										{
+											"key": "lmhid",
+											"value": "16792"
+										}
+									]
+								},
+								"description": "Truyền theo ngày muốn xem TKB, mặc định sẽ là ngày hiện tại"
+							},
+							"response": []
+						},
+						{
+							"name": "lopmonhoc/danhsachbuoihoc",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{domainS}}/hocvien/lopmonhoc/buoihoc?lmhid=16792",
+									"host": [
+										"{{domainS}}"
+									],
+									"path": [
+										"hocvien",
+										"lopmonhoc",
+										"buoihoc"
+									],
+									"query": [
+										{
+											"key": "lmhid",
+											"value": "16792"
+										}
+									]
+								},
+								"description": "Truyền theo ngày muốn xem TKB, mặc định sẽ là ngày hiện tại"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "TKB",
+					"item": [
+						{
+							"name": "hocvien/tkbtheongay",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{domainS}}/hocvien/tkbtheongay?ngay=2021-11-20",
+									"host": [
+										"{{domainS}}"
+									],
+									"path": [
+										"hocvien",
+										"tkbtheongay"
+									],
+									"query": [
+										{
+											"key": "ngay",
+											"value": "2021-11-20"
+										}
+									]
+								},
+								"description": "Truyền theo ngày muốn xem TKB, mặc định sẽ là ngày hiện tại"
+							},
+							"response": []
+						},
+						{
+							"name": "hocvien/tkbtheohocky",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{domainS}}/hocvien/tkbtheohocky?hockyid=55",
+									"host": [
+										"{{domainS}}"
+									],
+									"path": [
+										"hocvien",
+										"tkbtheohocky"
+									],
+									"query": [
+										{
+											"key": "hockyid",
+											"value": "55"
+										}
+									]
+								},
+								"description": "Truyền theo ngày muốn xem TKB, mặc định sẽ là ngày hiện tại"
+							},
+							"response": []
+						},
+						{
+							"name": "hocvien/lichthi",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{domain}}/hocvien/lichthi?ngayBD=2019-01-01&ngayKT",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"hocvien",
+										"lichthi"
+									],
+									"query": [
+										{
+											"key": "ngayBD",
+											"value": "2019-01-01"
+										},
+										{
+											"key": "ngayKT",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "BangDiem",
+					"item": [
+						{
+							"name": "hocvien/bangdiemhocky",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{domain}}/hocvien/bangdiemhocky?hocKyId=61",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"hocvien",
+										"bangdiemhocky"
+									],
+									"query": [
+										{
+											"key": "hocKyId",
+											"value": "61"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "hocvien/bangdiemtongket",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{domain}}/hocvien/bangdiemtongket",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"hocvien",
+										"bangdiemtongket"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "hocvien/thongkectdt",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{domain}}/hocvien/thongkectdt",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"hocvien",
+										"thongkectdt"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "hocvien/monhocchuadat",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{domain}}/hocvien/monhocchuadat",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"hocvien",
+										"monhocchuadat"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "hocvien/chitietctdt",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}}",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{domainS}}/hocvien/chitietctdt",
+									"host": [
+										"{{domainS}}"
+									],
+									"path": [
+										"hocvien",
+										"chitietctdt"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "DKMH",
+					"item": [
+						{
+							"name": "hocvien/monhocdukien",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}} ",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{domainServer}}/hocvien/monhocdukien?hockyid=60&str=2vp",
+									"host": [
+										"{{domainServer}}"
+									],
+									"path": [
+										"hocvien",
+										"monhocdukien"
+									],
+									"query": [
+										{
+											"key": "hockyid",
+											"value": "60"
+										},
+										{
+											"key": "str",
+											"value": "2vp"
+										}
+									]
+								},
+								"description": "Truyền theo ngày muốn xem TKB, mặc định sẽ là ngày hiện tại"
+							},
+							"response": []
+						},
+						{
+							"name": "hocvien/ketquadk",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}} ",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{domain}}/hocvien/ketquadk?hockyid=62",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"hocvien",
+										"ketquadk"
+									],
+									"query": [
+										{
+											"key": "hockyid",
+											"value": "62"
+										}
+									]
+								},
+								"description": "Truyền theo ngày muốn xem TKB, mặc định sẽ là ngày hiện tại"
+							},
+							"response": []
+						},
+						{
+							"name": "hocvien/huydangky",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}} ",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n        \"id\": 194238,\r\n        \"hocvienid\": 13758,\r\n        \"dotdkid\": 100,\r\n        \"madieuchinh\": null,\r\n        \"khoamonhocyn\": false,\r\n        \"ketqua\": \"* \",\r\n        \"ketqualydo\": \"\",\r\n        \"xacnhanyn\": true,\r\n        \"ngaytao\": \"2021-08-18T00:50:58.083Z\",\r\n        \"ngaycapnhat\": null,\r\n        \"monhocid\": 930,\r\n        \"hockyid\": 62,\r\n        \"ketquatkb\": null,\r\n        \"ketqualydotkb\": null,\r\n        \"monHoc\": {\r\n            \"ma\": \"2TH105\",\r\n            \"ten\": \"Lập trình ứng dụng Java\",\r\n            \"sotinchi\": 3,\r\n            \"sotinchilt\": 1,\r\n            \"sotinchith\": 2\r\n        }\r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/hocvien/huydangky",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"hocvien",
+										"huydangky"
+									]
+								},
+								"description": "Truyền theo ngày muốn xem TKB, mặc định sẽ là ngày hiện tại"
+							},
+							"response": []
+						},
+						{
+							"name": "hocvien/dotdangky",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}} ",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{domain}}/hocvien/dotdangky?hockyid=62",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"hocvien",
+										"dotdangky"
+									],
+									"query": [
+										{
+											"key": "hockyid",
+											"value": "62"
+										}
+									]
+								},
+								"description": "Truyền theo ngày muốn xem TKB, mặc định sẽ là ngày hiện tại"
+							},
+							"response": []
+						},
+						{
+							"name": "hocvien/dangky",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}} ",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": " {\r\n        \"hocvienid\": 13758,\r\n        \"dotdkid\": 100,\r\n        \"monhocid\": 930,\r\n        \"hockyid\": 62\r\n  \r\n    }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{domain}}/hocvien/dangky",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"hocvien",
+										"dangky"
+									]
+								},
+								"description": "Truyền theo ngày muốn xem TKB, mặc định sẽ là ngày hiện tại"
+							},
+							"response": []
+						},
+						{
+							"name": "hocvien/monhoclai",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "token",
+										"value": "{{token}} ",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{domain}}/hocvien/monhoclai?hockyid=60",
+									"host": [
+										"{{domain}}"
+									],
+									"path": [
+										"hocvien",
+										"monhoclai"
+									],
+									"query": [
+										{
+											"key": "hockyid",
+											"value": "60"
+										}
+									]
+								},
+								"description": "Truyền theo ngày muốn xem TKB, mặc định sẽ là ngày hiện tại"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "hocvien/hocphi",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domainS}}/hocvien/hocphi",
+							"host": [
+								"{{domainS}}"
+							],
+							"path": [
+								"hocvien",
+								"hocphi"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "hocvien/lephi",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain}}/hocvien/lephi",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"hocvien",
+								"lephi"
+							],
+							"query": [
+								{
+									"key": "loaiPT",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "hocvien/guidon",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}} ",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"hocvienid\": 13758,\r\n        \"dotdkid\": 100,\r\n        \"monhocid\": 930,\r\n        \"hockyid\": 62\r\n  \r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/hocvien/dangky",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"hocvien",
+								"dangky"
+							]
+						},
+						"description": "Truyền theo ngày muốn xem TKB, mặc định sẽ là ngày hiện tại"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notify",
+			"item": [
+				{
+					"name": "notify",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"title\":\"Bảng điểm\", \"msg\":\"Đã có điểm môn Thực tập tốt nghiệp\", \"tokens\": [\r\n  \"c7XCKgngTRS2QWDo7SdSnX:APA91bG8SmaS_sf89oSm3aSYGy4pQBsmv5h2CtKPtZ3aLO-Oa1OcR1nRyoLW4wUCiiGkyMpSxDmIePkNNIXCLQCsXlFLtUgPplrs0bzX8jVSC2EJPCgmB7Vi4Mq4xtjULeFSELbkJPGx\",\r\n  \"dSjVw7FQSFmKETQRYh1pQA:APA91bGZEEoPVEeAjJ3nNDsMPWkXnmjXl52Pw6c2YAPfvMjljvU8AdHm7U0nGgwW8xmkoIG4feKU_CeRj_xfiuidBx7xt9UX7FQYYL1On97m8VnqjiiWh-kyRkPkrpBiRSpwXyK6YmCb\"\r\n]}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "123.31.31.82:3000/notify",
+							"host": [
+								"123",
+								"31",
+								"31",
+								"82"
+							],
+							"port": "3000",
+							"path": [
+								"notify"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "login",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"userid\": \"1811020008\", \"pass\": \"thanh0207\", \"type\": \"local\"}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/login",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user/register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\": \"httminh\", \"password\": \"123456\", \"confirmpass\": \"123456\",\r\n\"email\": \"vietnguyen3107@gmail.com\",\r\n\"hoten\" : \"nguyên quốc việt\",\r\n\"sdt\" : \"0909123456\",\r\n \"type\": \"local\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/register",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user/register/confirm",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\": \"httminh\", \"password\": \"123456\", \"confirmpass\": \"123456\",\r\n\"email\": \"vietnguyen3107@gmail.com\",\r\n\"hoten\" : \"nguyên quốc việt\",\r\n\"sdt\" : \"0909123456\",\r\n \"type\": \"local\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/register",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user/info",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{GVToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domainS}}/user/info",
+							"host": [
+								"{{domainS}}"
+							],
+							"path": [
+								"user",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user/info/update",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"email\":\"vietnq@vido.edu.vn\",\"sdt\":\"90090909909\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/user/info/update",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"user",
+								"info",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change pass",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{GVToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"newpass\":\"1234567\", \"oldpass\": \"123456\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain}}/user/changepass",
+							"host": [
+								"{{domain}}"
+							],
+							"path": [
+								"user",
+								"changepass"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forget password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{GVToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"username\":\"httminh\", \"newpass\": \"123456\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domainS}}/user/forgetpass",
+							"host": [
+								"{{domainS}}"
+							],
+							"path": [
+								"user",
+								"forgetpass"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "forget password confirm",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "token",
+								"value": "{{GVToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"newpass\":\"545454\", \"oldpass\": \"123456\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domainS}}/user/forgetpass/confirm?code=47E4EA71E477431B9164595BB3B488AE",
+							"host": [
+								"{{domainS}}"
+							],
+							"path": [
+								"user",
+								"forgetpass",
+								"confirm"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "47E4EA71E477431B9164595BB3B488AE"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "hocky",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "ims-api.viendong.edu.vn/api/v1/hocky",
+					"host": [
+						"ims-api",
+						"viendong",
+						"edu",
+						"vn"
+					],
+					"path": [
+						"api",
+						"v1",
+						"hocky"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tokendevice",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTg3OTgsImhvY3ZpZW5pZCI6bnVsbCwiZ2lhbmd2aWVuaWQiOjc3MywidXNlcmlkIjoiaHR0bWluaCIsInBhc3MiOiIxMjM0NTYiLCJob2NWaWVuSWQiOm51bGwsImhvY1ZpZW4iOm51bGwsImdpYW5nVmllbiI6eyJpZCI6NzczLCJtYSI6IjAwNDciLCJ0ZW4iOiJLUyBLYW8gSG_DoG5nIFZp4buHdCBIxrBuZyIsImd2Y29odXV5biI6dHJ1ZSwiZW1haWwiOiJhcHBzQHZpZW5kb25nLmVkdS52biIsInNkdCI6bnVsbCwiZGlhY2hpIjpudWxsLCJuZ2F5c2luaCI6bnVsbH0sImlhdCI6MTYzMjkyNzM3Mn0.lf6EpCTszHe1mrE5boMYmTqBoWsRqbucmqbPv5GOEMQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"token\": \"eZKp6H4CTQelL1ld4UFl_2:APA91bHjibj3CFhJFl9oj8mrUG6HWThswkZ7xNZDU0cQ1Gen65_-D5XGZFhX30o9HkaCDj1xFhOreEFYk1DEHc8zd5fJG-XWTFzTzJlhw7PCnAE7RuP4HOfMGXfokCdveDK1NsedeF2U\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domainS}}/tokendevice/dangky",
+					"host": [
+						"{{domainS}}"
+					],
+					"path": [
+						"tokendevice",
+						"dangky"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eZKp6H4CTQelL1ld4UFl_2:APA91bHjibj3CFhJFl9oj8mrUG6HWThswkZ7xNZDU0cQ1Gen65_-D5XGZFhX30o9HkaCDj1xFhOreEFYk1DEHc8zd5fJG-XWTFzTzJlhw7PCnAE7RuP4HOfMGXfokCdveDK1NsedeF2U",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tokendevice/list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTg3OTgsImhvY3ZpZW5pZCI6bnVsbCwiZ2lhbmd2aWVuaWQiOjc3MywidXNlcmlkIjoiaHR0bWluaCIsInBhc3MiOiIxMjM0NTYiLCJob2NWaWVuSWQiOm51bGwsImhvY1ZpZW4iOm51bGwsImdpYW5nVmllbiI6eyJpZCI6NzczLCJtYSI6IjAwNDciLCJ0ZW4iOiJLUyBLYW8gSG_DoG5nIFZp4buHdCBIxrBuZyIsImd2Y29odXV5biI6dHJ1ZSwiZW1haWwiOiJhcHBzQHZpZW5kb25nLmVkdS52biIsInNkdCI6bnVsbCwiZGlhY2hpIjpudWxsLCJuZ2F5c2luaCI6bnVsbH0sImlhdCI6MTYzMjkyNzM3Mn0.lf6EpCTszHe1mrE5boMYmTqBoWsRqbucmqbPv5GOEMQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"token\": \"eZKp6H4CTQelL1ld4UFl_2:APA91bHjibj3CFhJFl9oj8mrUG6HWThswkZ7xNZDU0cQ1Gen65_-D5XGZFhX30o9HkaCDj1xFhOreEFYk1DEHc8zd5fJG-XWTFzTzJlhw7PCnAE7RuP4HOfMGXfokCdveDK1NsedeF2U\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{domainS}}/tokendevice/danhsach/all?loaitk=sv",
+					"host": [
+						"{{domainS}}"
+					],
+					"path": [
+						"tokendevice",
+						"danhsach",
+						"all"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eZKp6H4CTQelL1ld4UFl_2:APA91bHjibj3CFhJFl9oj8mrUG6HWThswkZ7xNZDU0cQ1Gen65_-D5XGZFhX30o9HkaCDj1xFhOreEFYk1DEHc8zd5fJG-XWTFzTzJlhw7PCnAE7RuP4HOfMGXfokCdveDK1NsedeF2U",
+							"disabled": true
+						},
+						{
+							"key": "loaitk",
+							"value": "sv"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tiethoc",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domainServer}}/tiethoc",
+					"host": [
+						"{{domainServer}}"
+					],
+					"path": [
+						"tiethoc"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "check",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domainS}}/check",
+					"host": [
+						"{{domainS}}"
+					],
+					"path": [
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "banner-images",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "{{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{domainS}}/banner-images",
+					"host": [
+						"{{domainS}}"
+					],
+					"path": [
+						"banner-images"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain",
+			"value": "https://ims-api.viendong.edu.vn/api/v1"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTMwMjIsImhvY3ZpZW5pZCI6MTM3NTgsInVzZXJpZCI6IjE5MDYwMjAwNTciLCJwYXNzIjoiYUEhMDEyNjQ3MzQ0MDAiLCJob2NWaWVuSWQiOjEzNzU4LCJob2NWaWVuIjp7ImlkIjoxMzc1OCwibXNodiI6IjE5MDYwMjAwNTciLCJobyI6Ik5ndXnhu4VuIE5n4buNYyBOYW0iLCJ0ZW4iOiJCw6xuaCIsImhpbmhhbmgiOm51bGwsIm1hbG9wIjoiMTNUSEMiLCJuYW1uaGFwaG9jIjoyMDE5LCJraG9haG9jIjoxMywiZ2hpY2h1IjoiIiwibmdheWxhcCI6IjIwMTktMDctMDhUMDA6MDA6MDAuMDAwWiIsIm1hdHJhbmd0aGFpIjpudWxsLCJuZ2F5c2luaCI6IjE5OTUtMTEtMThUMDA6MDA6MDAuMDAwWiIsImVtYWlsIjoibmFtYmluaDIwMTZAZ21haWwuY29tIiwic2R0IjoiMDc3ODczNzMyNSIsImNtbmQiOiIwMjUxODcyMjIiLCJnaW9pdGluaCI6MSwibm9pc2luaCI6bnVsbCwia2hvaW5nYW5oaWQiOjQ4MH0sImlhdCI6MTYyODg2Njc1Nn0.INvQ28dh_GLz3C_6SjHlZTseR2pSIjk0fNeEHT4gLhU"
+		},
+		{
+			"key": "GVToken",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTc0MTIsImhvY3ZpZW5pZCI6bnVsbCwiZ2lhbmd2aWVuaWQiOjc3MywidXNlcmlkIjoiaHR0bWluaCIsInBhc3MiOiIxMjM0NTYiLCJob2NWaWVuSWQiOm51bGwsImhvY1ZpZW4iOm51bGwsImdpYW5nVmllbiI6eyJpZCI6NzczLCJtYSI6IjAwNDciLCJ0ZW4iOiJLUyBLYW8gSG_DoG5nIFZp4buHdCBIxrBuZyIsImd2Y29odXV5biI6dHJ1ZSwibWFzb3RodWUiOm51bGx9LCJpYXQiOjE2MzI0MTY5ODF9.qX8Op9jxUQHd90K2DOR4bi-OFt4Vs7-O4oB5mDP4TnQ"
+		},
+		{
+			"key": "domainS",
+			"value": ""
+		},
+		{
+			"key": "domainTest",
+			"value": "ims-api.viendong.edu.vn/api/beta"
+		},
+		{
+			"key": "domainSIP",
+			"value": "123.31.31.82:8086",
+			"type": "string"
+		}
+	]
+}

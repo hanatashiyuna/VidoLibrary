@@ -2,7 +2,7 @@
 import { StyleSheet, Text, View, TouchableOpacity, TextInput, Dimensions, SafeAreaView, ImageBackground, Image, StatusBar, Animated } from 'react-native';
 import React, { Component } from 'react'
 import { useState, useEffect, useRef } from 'react';
-
+import QRScanner from '../models/qrcode_scanner';
 
 const widthWindow = Dimensions.get('window').width;
 const heightWindow = Dimensions.get('window').height;
@@ -18,7 +18,7 @@ function QRActivity({navigation}) {
         <SafeAreaView style={style.main_project}>
             <StatusBar hidden={false} backgroundColor='#FBF8F2' barStyle="dark-content"/>
                 <View style={style.main_view}>
-                
+                    <QRScanner />
                 </View>
        </SafeAreaView>
     );

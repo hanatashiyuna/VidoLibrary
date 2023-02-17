@@ -4,6 +4,7 @@ import React, { Component, useState } from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import data from '../data/data.json';
 import ErrorPage from './error_page';
+import { Slider } from 'react-native/Libraries/Components/Slider/Slider';
 
 const widthWindow = Dimensions.get('window').width;
 const heightWindow = Dimensions.get('window').height;
@@ -65,30 +66,26 @@ function BookDetailActivity({route, navigation}) {
                         <Text>340</Text>
                     </View>
                 </View>
-                <View style={[style.flex_row, style.detail_middle_tab]}>
-                    {
-                        tab.map((e, index) =>
-                            <TouchableOpacity
-                                key={index}
-                                onPress={()=>{
-                                    setSelectedTab(index);
-                                    console.log(selectedTab);
-                                }}
-                                style={[
-                                    { padding: 10, borderBottomWidth: 1 },
-                                    selectedTab === index ? { borderBottomColor: '#f6b26b' } : { borderBottomColor: '#ccc' }
-                                ]}
-                            >
-                                <Text>{tabInfo[index]}</Text>
-                            </TouchableOpacity>
-                        )
-                    }
-                    <View>
-                        {
-                            tabInfo.map((e, index) => 
-                                <Text>{bookInfo.summary}</Text>
+                <View>
+                    <View style={[style.flex_row, style.detail_middle_tab]}>
+                        {tab.map((e, index) =>
+                                <TouchableOpacity
+                                    key={index}
+                                    onPress={()=>{
+                                        setSelectedTab(index);
+                                    }}
+                                    style={[
+                                        { padding: 10, borderBottomWidth: 1 },
+                                        selectedTab === index ? { borderBottomColor: '#f6b26b' } : { borderBottomColor: '#ccc' }
+                                    ]}
+                                >
+                                    <Text>{tab[index]}</Text>
+                                </TouchableOpacity>
                             )
                         }
+                    </View>
+                    <View>
+                        <Text>{tabInfo[selectedTab]}</Text>
                     </View>
                 </View>
             </View>

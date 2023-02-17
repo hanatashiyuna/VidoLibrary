@@ -22,9 +22,10 @@ import AccuracyActivity from './resources/view/accuracy_activity';
 
 import AccuracyRegisterActivity from './resources/view/accuracy_register_activity';
 
-//Màng hình trang chủ
+//Màng hình ứng dụng
 
 import HomeActivity from './resources/view/home_activity';
+import BookDetailActivity from './resources/view/book_detail_activity';
 
 const widthWindow = Dimensions.get('window').width;
 const heightWindow = Dimensions.get('window').height;
@@ -87,6 +88,7 @@ function RootComponent({}) {
             <Stack.Screen name="ConfirmID" component={ConfirmID} />
             <Stack.Screen name="AccuracyActivity" component={AccuracyActivity} />
             <Stack.Screen name="AccuracyRegisterActivity" component={AccuracyRegisterActivity} />
+            <Stack.Screen name="BookDetailActivity" component={BookDetailActivity} />
             {/* <Stack.Screen name="AroundMap" component={AroundMap} />
             <Stack.Screen name="LocationDetail" component={LocationDetail} /> */}
   

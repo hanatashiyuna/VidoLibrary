@@ -1,81 +1,120 @@
 {
-  "books": [
-    {
-      "id": "1",
-      "title": "IT book",
-      "description": "This is a book! Can you read this?",
-      "image": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
-      "author": "Yuna",
-      "status": "borrow",
-      "quantity": 4,
-      "like": 999,
-      "rating": 5
-    },
-    {
-      "id": "2",
-      "title": "Marketing book",
-      "description": "This is a book! Can you read this?",
-      "image": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
-      "author": "Luna",
-      "status": "borrow",
-      "quantity": 4,
-      "like": 1001,
-      "rating": 3
-    },
-    {
-      "id": "3",
-      "title": "Design Book",
-      "description": "This is a book! Can you read this?",
-      "image": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
-      "author": "Luna",
-      "status": "borrow",
-      "quantity": 4,
-      "like": 101,
-      "rating": 4
-    },
-    {
-        "id": "4",
+  "books": {
+    "info": [
+      {
+        "id": 1,
+        "title": "IT book",
+        "description": "This is a book! Can you read this?",
+        "summary": "Genshin Impact là một game nhập vai hành động miễn phí được phát triển bởi miHoYo. Trong game, người chơi điều khiển một nhóm các nhân vật tìm kiếm nguồn gốc của thế giới đang bị chia cắt thành 7 vùng đất khác nhau. Trò chơi có hệ thống chiến đấu thời gian thực, hệ thống năng lượng và phù thủy, cho phép người chơi sử dụng các kỹ năng và phép thuật để chiến đấu với kẻ thù. Các nhân vật trong game có tính năng và kỹ năng đặc trưng riêng, và người chơi có thể kết hợp chúng để tạo ra các chiến thuật khác nhau. Genshin Impact cũng có một thế giới mở để người chơi khám phá, với các nhiệm vụ phụ, hoạt động và trò chơi mini để giúp người chơi tiếp cận những nguồn tài nguyên mới và mở khóa các tính năng mới.",
+        "image": "https://rb.gy/5bz1gi",
+        "banner": "https://rb.gy/5bz1gi",
+        "author": "Yuna",
+        "status": true
+      },
+      {
+        "id": 2,
+        "title": "Marketing book",
+        "description": "This is a book! Can you read this?",
+        "summary": "Genshin Impact là một game nhập vai hành động miễn phí được phát triển bởi miHoYo. Trong game, người chơi điều khiển một nhóm các nhân vật tìm kiếm nguồn gốc của thế giới đang bị chia cắt thành 7 vùng đất khác nhau. Trò chơi có hệ thống chiến đấu thời gian thực, hệ thống năng lượng và phù thủy, cho phép người chơi sử dụng các kỹ năng và phép thuật để chiến đấu với kẻ thù. Các nhân vật trong game có tính năng và kỹ năng đặc trưng riêng, và người chơi có thể kết hợp chúng để tạo ra các chiến thuật khác nhau. Genshin Impact cũng có một thế giới mở để người chơi khám phá, với các nhiệm vụ phụ, hoạt động và trò chơi mini để giúp người chơi tiếp cận những nguồn tài nguyên mới và mở khóa các tính năng mới.",
+        "image": "http://tiny.cc/jcf4vz",
+        "banner": "http://tiny.cc/jcf4vz",
+        "author": "Luna",
+        "status": false
+      },
+      {
+        "id": 3,
         "title": "Design Book",
         "description": "This is a book! Can you read this?",
-        "image": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
+        "summary": "Genshin Impact là một game nhập vai hành động miễn phí được phát triển bởi miHoYo. Trong game, người chơi điều khiển một nhóm các nhân vật tìm kiếm nguồn gốc của thế giới đang bị chia cắt thành 7 vùng đất khác nhau. Trò chơi có hệ thống chiến đấu thời gian thực, hệ thống năng lượng và phù thủy, cho phép người chơi sử dụng các kỹ năng và phép thuật để chiến đấu với kẻ thù. Các nhân vật trong game có tính năng và kỹ năng đặc trưng riêng, và người chơi có thể kết hợp chúng để tạo ra các chiến thuật khác nhau. Genshin Impact cũng có một thế giới mở để người chơi khám phá, với các nhiệm vụ phụ, hoạt động và trò chơi mini để giúp người chơi tiếp cận những nguồn tài nguyên mới và mở khóa các tính năng mới.",
+        "image": "https://rb.gy/5bz1gi",
+        "banner": "https://rb.gy/5bz1gi",
         "author": "Luna",
-        "status": "borrow",
+        "status": true
+      },
+      {
+        "id": 4,
+        "title": "Design Book",
+        "description": "This is a book! Can you read this?",
+        "summary": "Genshin Impact là một game nhập vai hành động miễn phí được phát triển bởi miHoYo. Trong game, người chơi điều khiển một nhóm các nhân vật tìm kiếm nguồn gốc của thế giới đang bị chia cắt thành 7 vùng đất khác nhau. Trò chơi có hệ thống chiến đấu thời gian thực, hệ thống năng lượng và phù thủy, cho phép người chơi sử dụng các kỹ năng và phép thuật để chiến đấu với kẻ thù. Các nhân vật trong game có tính năng và kỹ năng đặc trưng riêng, và người chơi có thể kết hợp chúng để tạo ra các chiến thuật khác nhau. Genshin Impact cũng có một thế giới mở để người chơi khám phá, với các nhiệm vụ phụ, hoạt động và trò chơi mini để giúp người chơi tiếp cận những nguồn tài nguyên mới và mở khóa các tính năng mới.",
+        "image": "http://tiny.cc/icf4vz",
+        "banner": "http://tiny.cc/icf4vz",
+        "author": "Luna",
+        "status": false
+      },
+      {
+        "id": 5,
+        "title": "Design Book",
+        "description": "This is a book! Can you read this?",
+        "summary": "Genshin Impact là một game nhập vai hành động miễn phí được phát triển bởi miHoYo. Trong game, người chơi điều khiển một nhóm các nhân vật tìm kiếm nguồn gốc của thế giới đang bị chia cắt thành 7 vùng đất khác nhau. Trò chơi có hệ thống chiến đấu thời gian thực, hệ thống năng lượng và phù thủy, cho phép người chơi sử dụng các kỹ năng và phép thuật để chiến đấu với kẻ thù. Các nhân vật trong game có tính năng và kỹ năng đặc trưng riêng, và người chơi có thể kết hợp chúng để tạo ra các chiến thuật khác nhau. Genshin Impact cũng có một thế giới mở để người chơi khám phá, với các nhiệm vụ phụ, hoạt động và trò chơi mini để giúp người chơi tiếp cận những nguồn tài nguyên mới và mở khóa các tính năng mới.",
+        "image": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
+        "banner": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
+        "author": "Luna",
+        "status": true
+      },
+      {
+        "id": 6,
+        "title": "Design Book",
+        "description": "This is a book! Can you read this?",
+        "summary": "Genshin Impact là một game nhập vai hành động miễn phí được phát triển bởi miHoYo. Trong game, người chơi điều khiển một nhóm các nhân vật tìm kiếm nguồn gốc của thế giới đang bị chia cắt thành 7 vùng đất khác nhau. Trò chơi có hệ thống chiến đấu thời gian thực, hệ thống năng lượng và phù thủy, cho phép người chơi sử dụng các kỹ năng và phép thuật để chiến đấu với kẻ thù. Các nhân vật trong game có tính năng và kỹ năng đặc trưng riêng, và người chơi có thể kết hợp chúng để tạo ra các chiến thuật khác nhau. Genshin Impact cũng có một thế giới mở để người chơi khám phá, với các nhiệm vụ phụ, hoạt động và trò chơi mini để giúp người chơi tiếp cận những nguồn tài nguyên mới và mở khóa các tính năng mới.",
+        "image": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
+        "banner": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
+        "author": "Luna",
+        "status": true
+      },
+      {
+        "id": 7,
+        "title": "Design Book",
+        "description": "This is a book! Can you read this?",
+        "summary": "Genshin Impact là một game nhập vai hành động miễn phí được phát triển bởi miHoYo. Trong game, người chơi điều khiển một nhóm các nhân vật tìm kiếm nguồn gốc của thế giới đang bị chia cắt thành 7 vùng đất khác nhau. Trò chơi có hệ thống chiến đấu thời gian thực, hệ thống năng lượng và phù thủy, cho phép người chơi sử dụng các kỹ năng và phép thuật để chiến đấu với kẻ thù. Các nhân vật trong game có tính năng và kỹ năng đặc trưng riêng, và người chơi có thể kết hợp chúng để tạo ra các chiến thuật khác nhau. Genshin Impact cũng có một thế giới mở để người chơi khám phá, với các nhiệm vụ phụ, hoạt động và trò chơi mini để giúp người chơi tiếp cận những nguồn tài nguyên mới và mở khóa các tính năng mới.",
+        "image": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
+        "banner": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
+        "author": "Luna",
+        "status": false
+      }
+    ],
+    "popular": [
+      {
+        "id": 1,
+        "quantity": 4,
+        "like": 999,
+        "rating": 5
+      },
+      {
+        "id": 2,
+        "quantity": 4,
+        "like": 1001,
+        "rating": 3
+      },
+      {
+        "id": 3,
+        "quantity": 4,
+        "like": 101,
+        "rating": 4
+      },
+      {
+        "id": 4,
         "quantity": 4,
         "like": 1,
         "rating": 0
-    },
-    {
-        "id": "5",
-        "title": "Design Book",
-        "description": "This is a book! Can you read this?",
-        "image": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
-        "author": "Luna",
-        "status": "borrow",
+      },
+      {
+        "id": 5,
         "quantity": 4,
         "like": 10,
         "rating": 1
-    },
-    {
-        "id": "6",
-        "title": "Design Book",
-        "description": "This is a book! Can you read this?",
-        "image": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
-        "author": "Luna",
-        "status": "borrow",
+      },
+      {
+        "id": 6,
         "quantity": 4,
         "like": 109,
         "rating": 2
-    },
-    {
-        "id": "7",
-        "title": "Design Book",
-        "description": "This is a book! Can you read this?",
-        "image": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
-        "author": "Luna",
-        "status": "borrow",
+      },
+      {
+        "id": 7,
         "quantity": 4,
         "like": 1022,
         "rating": 4
-    }
-  ]
+      }
+    ]
+  }
 }

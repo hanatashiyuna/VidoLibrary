@@ -3,15 +3,18 @@ import { StyleSheet, Text, View, TouchableOpacity, TextInput, Dimensions, SafeAr
 import React, { Component } from 'react'
 import { useState, useEffect, useRef } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import IconIonicons from 'react-native-vector-icons/Ionicons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import data from '../data/data.json';
 import StarRating from '../models/rating';
 
 const widthWindow = Dimensions.get('window').width;
 const heightWindow = Dimensions.get('window').height;
 
-const fetch = data.books.sort((a, b) => b.rating - a.rating);
-const bookWithMostRatings = fetch[0];
+//tạm thời dùng trên json
+const books = data.books; //sort code
+const fetchByRating = books.popular.sort((a, b) => b.rating - a.rating); //sort follow rating
+const popularBook = fetchByRating[0]; //most rating book with books.popular
+const bookWithMostRating = books.info.find(bookWithMostRating => bookWithMostRating.id === popularBook.id);//most rating book with books.info
 
 function HomeActivity({navigation}) {
     return (
@@ -20,7 +23,7 @@ function HomeActivity({navigation}) {
                 <View style={style.main_view}>
                     <View style={[style.header_view, style.flex_row]}>
                         <View style={[style.header_logo, style.flex_row]}>
-                            <Image style={[style.image, style.logo]} source={{uri: 'https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg'}} />
+                            <Image style={[style.image, style.logo]} source={require('../../public/drawble/img/MaskGroup1.png')} />
                             <Text style={style.header_logo_text}>Vido Library</Text>
                         </View>
                         <View style={[style.header_icon, style.flex_row]}>
@@ -36,39 +39,51 @@ function HomeActivity({navigation}) {
                             </TouchableOpacity>
                         </View>
                     </View>
-                    <View style={style.banner}>
-                        <ImageBackground source={{uri: bookWithMostRatings.image}} style={[style.banner_background]}/>
-                        <View style={[style.banner_icon]}>
-                            <IconIonicons name="bookmarks-outline" size={30} color="#fff" />
-                        </View>
-                        <View style={[style.banner_title, style.flex_row]}>
-                            <View style={[style.flex_column, style.banner_title_item]}>
-                                <Text style={[style.banner_title_item_text]}>{bookWithMostRatings.title}</Text>
-                                <Text style={[style.banner_title_item_text]}>{bookWithMostRatings.description}</Text>
+                    <TouchableOpacity 
+                    style={style.banner}
+                    onPress={() => {
+                        navigation.navigate('BookDetailActivity', {
+                            idBook: bookWithMostRating.id
+                        });
+                    }}>
+                        <View style={[{width: '100%', height: '100%'}]}>
+                            <ImageBackground source={{uri: bookWithMostRating.banner}} style={[style.banner_background]}/>
+                            <View style={[style.banner_icon]}>
+                                <Ionicons name="bookmarks-outline" size={30} color="#fff" />
                             </View>
-                            <View style={[style.flex_column]}>
-                                <Text style={[style.banner_title_item_text]}>{bookWithMostRatings.author}</Text>
-                                <StarRating ratings={bookWithMostRatings.rating}/>
+                            <View style={[style.banner_title, style.flex_row]}>
+                                <View style={[style.flex_column, style.banner_title_item]}>
+                                    <Text style={[style.banner_title_item_text]}>{bookWithMostRating.title}</Text>
+                                    <Text style={[style.banner_title_item_text]}>{bookWithMostRating.description}</Text>
+                                </View>
+                                <View style={[style.flex_column]}>
+                                    <Text style={[style.banner_title_item_text]}>{bookWithMostRating.author}</Text>
+                                    <StarRating ratings={popularBook.rating}/>
+                                </View>
                             </View>
                         </View>
-                    </View>
+                    </TouchableOpacity>
                     <View style={[style.list_book]}>
-                        <Text style={style.list_book_title}>Popular Books</Text>
+                        <Text style={style.list_book_title}>Sách Nổi Bật</Text>
                         <ScrollView
                         scrollEnabled={true}
                         showsHorizontalScrollIndicator={true}
                         showsVerticalScrollIndicator={true}
                         >
-                            {data.books.map((e, index)=>
+                            {books.info.map((e, index)=>
                                 <TouchableOpacity
-                                    key={index}
-                                    onPress={() => console.log("Item " + index + " pressed!")}>
+                                key={index}
+                                onPress={() => {
+                                    navigation.navigate('BookDetailActivity', {
+                                        idBook: books.info[index].id
+                                    });
+                                }}>
                                     <View style={[style.flex_row, style.list_book_item]}>
-                                        <Image style={[style.list_book_image]} source={{uri: data.books[index].image}}/>
+                                        <Image style={[style.list_book_image]} source={{uri: books.info[index].image}}/>
                                         <View>
-                                            <Text style={[style.list_book_details]}>{data.books[index].title} </Text>
-                                            <Text style={[style.list_book_details]}>Like: {data.books[index].like}</Text>
-                                            <Text style={[style.list_book_details]}><StarRating ratings={data.books[index].rating}/></Text>
+                                            <Text style={[style.list_book_details]}>{books.info[index].title} </Text>
+                                            <Text style={[style.list_book_details]}>Like: {books.popular.find(popular => popular.id === books.info[index].id) ? books.popular[index].like : ""}</Text>
+                                            <Text style={[style.list_book_details]}>{books.popular.find(popular => popular.id === books.info[index].id) ? <StarRating ratings={books.popular[index].rating}/> : ""}</Text>
                                         </View>
                                     </View>
                                 </TouchableOpacity>
@@ -94,7 +109,7 @@ const style = StyleSheet.create({
         display: 'flex',
     },
 
-    infor_name: {
+    info_name: {
         width:'100%', 
         height:"90%", 
         position:'relative', 
@@ -147,7 +162,7 @@ const style = StyleSheet.create({
 
     header_view: {
         justifyContent: 'space-between',
-        margin: 20,
+        margin: '4%',
         alignItems: 'center'
     },
 
@@ -183,8 +198,8 @@ const style = StyleSheet.create({
     banner: {
         position: 'relative',
         height: '30%',
-        marginLeft: 20,
-        marginRight: 20,
+        marginLeft: '4%',
+        marginRight: '4%',
         borderRadius: 10,
         overflow: 'hidden'
     },
@@ -232,9 +247,9 @@ const style = StyleSheet.create({
     list_book: {
         width: 'auto',
         height: '51%',
-        marginLeft: 20,
-        marginRight: 20,
-        marginTop: 20,
+        marginLeft: '4%',
+        marginRight: '4%',
+        marginTop: '4%',
     },
 
     image: {

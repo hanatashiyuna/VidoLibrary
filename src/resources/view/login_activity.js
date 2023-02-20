@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity, TextInput, Dimensions, SafeAr
 import React, { Component } from 'react'
 import { useState, useEffect, useRef } from 'react';
 import SplashActivity from './splash_activity';
+import Dialog from './asset/dialog';
 
 
 const widthWindow = Dimensions.get('window').width;
@@ -11,9 +12,11 @@ const heightWindow = Dimensions.get('window').height;
 function LoginActivity({navigation}) {
     
     const [getEmail, setEmail] = useState('');
+    const [getPass, setPass] = useState('');
     const [checked, setchecked] = useState(false);
     // code set hide password
     const[getPasswordVisible, setPasswordVisible] = useState(false);
+    const topMotion = useRef(new Animated.Value(-(Dimensions.get('window').height))).current;
 
     useEffect(() => {
         // if (navigation.goBack()) {
@@ -21,10 +24,22 @@ function LoginActivity({navigation}) {
         // }
     }, [])
 
+    const topView = () => {
+      // Will change fadeAnim value to 1 in 5 seconds
+      Animated.timing(topMotion, {
+        toValue: Dimensions.get('window').height/3,
+        duration: 500,
+        useNativeDriver: false
+      }).start();
+    };
+  
+    
+
     return (
         <SafeAreaView style={style.main_project}>
             <StatusBar hidden={false} backgroundColor='#FBF8F2' barStyle="dark-content"/>
                 <View style={style.main_view}>
+               
                 <Image style={{position:'absolute', bottom:-500, left:-300}} source={require('../../public/drawble/img/Group33.png')}/>
                 
                 <View style={{marginTop:0.2*widthWindow, width:'100%', height:'auto', alignItems: 'center'}}>
@@ -45,13 +60,14 @@ function LoginActivity({navigation}) {
                       placeholder="Email"
                     />
 
-                    
                   </View>
                   <View style={{width: '93%', height: 40, flexDirection:'row', marginTop:20}}>
                     {/* <Icon style={{marginTop: 10}} name="lock" size={24} /> */}
                     <View style={{width: '100%', height: '100%', flexDirection:'row', borderBottomWidth: 1, borderBottomColor: 'gray', paddingRight:0}}>
                       <TextInput style={{ color: 'black', width: '90%', height:'100%', marginStart:10, fontSize:14 }}
                         autoCapitalize = 'none' 
+                        value={getPass}
+                        onChangeText = {setPass}
                         secureTextEntry={getPasswordVisible? false: true}
                         placeholder="Mật Khẩu"
                       /> 
@@ -64,15 +80,10 @@ function LoginActivity({navigation}) {
                         : 
                         <Image source={require('../../public/drawble/img/eye_icon.png')} style={{width:'100%', height:'100%'}}  resizeMode="contain"/>
                       }
-                       
                       </TouchableOpacity> 
-                      
                     </View>
-                    
                   </View>
                 </View>
-                
-                
 
                 {/* set forgot pass and hide pass */}
                 <View style={{ alignItems:'flex-end', marginEnd: 20, marginTop: 15}}>
@@ -88,17 +99,24 @@ function LoginActivity({navigation}) {
                       </Text>
                   </TouchableOpacity>
                 </View>
+                
                 {/* Submit login */}
                 <View style={{ width:'100%', height: 130,marginTop: 0.15*heightWindow}}>
                   <View style={{width:'100%', height:'auto', alignItems:'center'}}>
                     <TouchableOpacity style={{ alignItems: 'center', justifyContent:'center', width:'95%',height:60, backgroundColor:'#F38320', borderRadius:10}}
                     onPress = {() => {
-                      navigation.navigate('HomeActivity');
-                      // navigation.navigate('ComFirmID', {
-                      //   email: getEmail
-                      // });
+                      if (getEmail != '' && getPass != '') {
+                        navigation.navigate('HomeActivity');
+                        // navigation.navigate('ComFirmID', {
+                        //   email: getEmail
+                        // });
+                      }else {
+                        topView();
+                      }
+                      
                     }}
                     >
+
                         <Text style={{fontSize:25, color:'white'}}>
                             Đăng Nhập 
                         </Text>
@@ -119,6 +137,8 @@ function LoginActivity({navigation}) {
                     </View>
                   </View>
                 </View>
+
+                <Dialog topMotion={topMotion} captionHeader="Thông Báo" captionBody="Sai tài khoản hoặc mật khẩu. Vui lòng nhập lại" textAgree="Đồng Ý"/>
                 </View>
        </SafeAreaView>
     );

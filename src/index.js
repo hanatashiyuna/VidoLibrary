@@ -31,6 +31,11 @@ import PersonActivity from './resources/view/person_activity';
 // QR code
 
 import QRActivity from './resources/view/qr_activity';
+import QRAccount from './resources/models/qrcode_account';
+
+//Màng hình kho sách
+
+import StorageActivity from './resources/view/storage_activity';
 
 const widthWindow = Dimensions.get('window').width;
 const heightWindow = Dimensions.get('window').height;
@@ -80,7 +85,8 @@ function BottomBar() {
           tabBarIcon: ({ color }) => (
               <Icon name="bookmark" color={color} size={30} />
           )
-      }}  component={HomeActivity} />
+      }}  component={StorageActivity} />
+
 
       <Tab.Screen name="QRActivity" component={QRActivity} 
         options={{
@@ -138,8 +144,11 @@ function RootComponent({}) {
             <Stack.Screen name="LocationDetail" component={LocationDetail} /> */}
             <Stack.Screen name="QRActivity" component={QRActivity} />
             {/* <Stack.Screen name="AroundMap" component={AroundMap} /> */}
+<<<<<<< HEAD
             <Stack.Screen name="PersonActivity" component={PersonActivity} />
   
+=======
+>>>>>>> origin/TMTMF202
           </Stack.Navigator>
         </NavigationContainer>
         // <View>

@@ -4,7 +4,7 @@ import React, { Component, useState } from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import data from '../data/data.json';
 import ErrorPage from './error_page';
-import { Slider } from 'react-native/Libraries/Components/Slider/Slider';
+import QRCode from 'react-native-qrcode-svg';
 
 const widthWindow = Dimensions.get('window').width;
 const heightWindow = Dimensions.get('window').height;
@@ -15,12 +15,16 @@ function BookDetailActivity({route, navigation}) {
     const bookInfo = data.books.info.find(book => book.id === idBook);
     const popularBook = data.books.popular.find(book => book.id === idBook);
 
-    const tab = ["Tóm Tắt", "Mã Sách", "Kệ Sách"];
-    const tabInfo = [bookInfo.summary, bookInfo.status];
+    const tab = ["Tóm Tắt", "Mã Sách"];
+    const tabInfo = [
+        bookInfo.summary,
+        bookInfo.status ? <View style={style.qr_code}><QRCode value={bookInfo.token.qr_code} size={150} backgroundColor='white' color='black' /></View> : <ErrorPage />
+    ];
     const [selectedTab, setSelectedTab] = useState(0);
 
     return bookInfo ? (
         <SafeAreaView style={style.main_view}>
+            <StatusBar hidden={false} backgroundColor='#FBF8F2' barStyle="dark-content"/>
             <View style={[style.header, style.flex_row]}>
                 <View style={[style.header_go_back]}>
                     <TouchableOpacity
@@ -54,12 +58,12 @@ function BookDetailActivity({route, navigation}) {
                 </View>
                 <View style={[style.flex_row, style.detail_middle]}>
                     <View style={[style.detail_middle_item]}>
-                        <Text>NXB</Text>
-                        <Text>2021</Text>
+                        <Text>Vị Trí</Text>
+                        <Text>{bookInfo.position}</Text>
                     </View>
                     <View style={[style.detail_middle_item]}>
-                        <Text>Phần</Text>
-                        <Text>6</Text>
+                        <Text>NXB</Text>
+                        <Text>{bookInfo.nxb}</Text>
                     </View>
                     <View style={[style.detail_middle_item]}>
                         <Text>Số trang</Text>
@@ -84,8 +88,14 @@ function BookDetailActivity({route, navigation}) {
                             )
                         }
                     </View>
-                    <View>
-                        <Text>{tabInfo[selectedTab]}</Text>
+                    <View style={style.tab_info}>
+                        <ScrollView
+                        scrollEnabled={true}
+                        showsHorizontalScrollIndicator={true}
+                        showsVerticalScrollIndicator={true}
+                        >
+                            <Text style={style.tab_info_item}>{tabInfo[selectedTab]}</Text>
+                        </ScrollView>
                     </View>
                 </View>
             </View>
@@ -99,7 +109,7 @@ const style = StyleSheet.create({
     main_view: {
         with: widthWindow,
         height: heightWindow,
-        backgroundColor: '#fff',
+        backgroundColor:"#FBF8F2"
     },
 
     flex_row: {
@@ -169,6 +179,22 @@ const style = StyleSheet.create({
 
     detail_middle_tab: {
         justifyContent: 'space-around',
+    },
+
+    tab_info: {
+        margin: '4%',
+        marginTop: 0,
+        marginBottom: '2%',
+        display: 'flex',
+        height: '62%'
+    },
+
+    qr_code: {
+        display: 'flex',
+        width: 350,
+        height: 200,
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 })
 

@@ -5,11 +5,17 @@
         "id": 1,
         "title": "IT book",
         "description": "This is a book! Can you read this?",
-        "summary": "Genshin Impact là một game nhập vai hành động miễn phí được phát triển bởi miHoYo. Trong game, người chơi điều khiển một nhóm các nhân vật tìm kiếm nguồn gốc của thế giới đang bị chia cắt thành 7 vùng đất khác nhau. Trò chơi có hệ thống chiến đấu thời gian thực, hệ thống năng lượng và phù thủy, cho phép người chơi sử dụng các kỹ năng và phép thuật để chiến đấu với kẻ thù. Các nhân vật trong game có tính năng và kỹ năng đặc trưng riêng, và người chơi có thể kết hợp chúng để tạo ra các chiến thuật khác nhau. Genshin Impact cũng có một thế giới mở để người chơi khám phá, với các nhiệm vụ phụ, hoạt động và trò chơi mini để giúp người chơi tiếp cận những nguồn tài nguyên mới và mở khóa các tính năng mới.",
+        "summary": "Genshin Impact là một game nhập vai hành động miễn phí được phát triển bởi miHoYo. Trong game, người chơi điều khiển một nhóm các nhân vật tìm kiếm nguồn gốc của thế giới đang bị chia cắt thành 7 vùng đất khác nhau. Trò chơi có hệ thống chiến đấu thời gian thực, hệ thống năng lượng và phù thủy, cho phép người chơi sử dụng các kỹ năng và phép thuật để chiến đấu với kẻ thù. Các nhân vật trong game có tính năng và kỹ năng đặc trưng riêng, và người chơi có thể kết hợp chúng để tạo ra các chiến thuật khác nhau. Genshin Impact cũng có một thế giới mở để người chơi khám phá, với các nhiệm vụ phụ, hoạt động và trò chơi mini để giúp người chơi tiếp cận những nguồn tài nguyên mới và mở khóa các tính năng mới. Genshin Impact là một game nhập vai hành động miễn phí được phát triển bởi miHoYo. Trong game, người chơi điều khiển một nhóm các nhân vật tìm kiếm nguồn gốc của thế giới đang bị chia cắt thành 7 vùng đất khác nhau. Trò chơi có hệ thống chiến đấu thời gian thực, hệ thống năng lượng và phù thủy, cho phép người chơi sử dụng các kỹ năng và phép thuật để chiến đấu với kẻ thù. Các nhân vật trong game có tính năng và kỹ năng đặc trưng riêng, và người chơi có thể kết hợp chúng để tạo ra các chiến thuật khác nhau. Genshin Impact cũng có một thế giới mở để người chơi khám phá, với các nhiệm vụ phụ, hoạt động và trò chơi mini để giúp người chơi tiếp cận những nguồn tài nguyên mới và mở khóa các tính năng mới.",
         "image": "https://rb.gy/5bz1gi",
         "banner": "https://rb.gy/5bz1gi",
         "author": "Yuna",
-        "status": true
+        "status": true,
+        "position": 4,
+        "token": {
+          "qr_code": "NNTSF182",
+          "bar_code": "1234591723"
+        },
+        "nxb": "Nhi Đồng"
       },
       {
         "id": 2,
@@ -19,7 +25,13 @@
         "image": "http://tiny.cc/jcf4vz",
         "banner": "http://tiny.cc/jcf4vz",
         "author": "Luna",
-        "status": false
+        "status": false,
+        "position": 4,
+        "token": {
+          "qr_code": "NNTSF182",
+          "bar_code": "1234591723"
+        },
+        "nxb": "Nhi Đồng"
       },
       {
         "id": 3,
@@ -29,7 +41,13 @@
         "image": "https://rb.gy/5bz1gi",
         "banner": "https://rb.gy/5bz1gi",
         "author": "Luna",
-        "status": true
+        "status": true,
+        "position": 4,
+        "token": {
+          "qr_code": "NNTSF182",
+          "bar_code": "1234591723"
+        },
+        "nxb": "Nhi Đồng"
       },
       {
         "id": 4,
@@ -39,7 +57,13 @@
         "image": "http://tiny.cc/icf4vz",
         "banner": "http://tiny.cc/icf4vz",
         "author": "Luna",
-        "status": false
+        "status": false,
+        "position": 4,
+        "token": {
+          "qr_code": "NNTSF182",
+          "bar_code": "1234591723"
+        },
+        "nxb": "Nhi Đồng"
       },
       {
         "id": 5,
@@ -49,7 +73,13 @@
         "image": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
         "banner": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
         "author": "Luna",
-        "status": true
+        "status": true,
+        "position": 4,
+        "token": {
+          "qr_code": "NNTSF182",
+          "bar_code": "1234591723"
+        },
+        "nxb": "Nhi Đồng"
       },
       {
         "id": 6,
@@ -59,7 +89,13 @@
         "image": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
         "banner": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
         "author": "Luna",
-        "status": true
+        "status": true,
+        "position": 4,
+        "token": {
+          "qr_code": "NNTSF182",
+          "bar_code": "1234591723"
+        },
+        "nxb": "Nhi Đồng"
       },
       {
         "id": 7,
@@ -69,7 +105,13 @@
         "image": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
         "banner": "https://i.pinimg.com/736x/82/33/74/823374b1d22f2c7460ba73bce01acdc0.jpg",
         "author": "Luna",
-        "status": false
+        "status": false,
+        "position": 4,
+        "token": {
+          "qr_code": "NNTSF182",
+          "bar_code": "1234591723"
+        },
+        "nxb": "Nhi Đồng"
       }
     ],
     "popular": [
@@ -77,44 +119,89 @@
         "id": 1,
         "quantity": 4,
         "like": 999,
-        "rating": 5
+        "rating": 5,
+        "borrow": {
+          "user_id_borrow": 1,
+          "borrow_quantity": 1
+        }
       },
       {
         "id": 2,
         "quantity": 4,
         "like": 1001,
-        "rating": 3
+        "rating": 3,
+        "borrow": {
+          "user_id_borrow": 1,
+          "borrow_quantity": 1
+        }
       },
       {
         "id": 3,
         "quantity": 4,
         "like": 101,
-        "rating": 4
+        "rating": 4,
+        "borrow": {
+          "user_id_borrow": 1,
+          "borrow_quantity": 1
+        }
       },
       {
         "id": 4,
         "quantity": 4,
         "like": 1,
-        "rating": 0
+        "rating": 0,
+        "borrow": {
+          "user_id_borrow": 1,
+          "borrow_quantity": 1
+        }
       },
       {
         "id": 5,
         "quantity": 4,
         "like": 10,
-        "rating": 1
+        "rating": 1,
+        "borrow": {
+          "user_id_borrow": 1,
+          "borrow_quantity": 1
+        }
       },
       {
         "id": 6,
         "quantity": 4,
         "like": 109,
-        "rating": 2
+        "rating": 2,
+        "borrow": {
+          "user_id_borrow": 1,
+          "borrow_quantity": 1
+        }
       },
       {
         "id": 7,
         "quantity": 4,
         "like": 1022,
-        "rating": 4
+        "rating": 4,
+        "borrow": {
+          "user_id_borrow": 1,
+          "borrow_quantity": 1
+        }
       }
     ]
-  }
+  },
+
+  "user": [
+    {
+    "id": 1,
+    "name": "Hanatashi Yuna",
+    "email": "nhattiennguyen224@gmail.com",
+    "pass": "aFdi3FEKAw1234975",
+    "phone": "032912345",
+    "class": "14THDH",
+    "mssv": "2006010004"
+    },
+    
+    {
+      "quantity": 4,
+      "day_borrow": "25/7/2023"
+    }
+  ]
 }

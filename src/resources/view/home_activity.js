@@ -20,77 +20,77 @@ function HomeActivity({navigation}) {
     return (
         <SafeAreaView style={style.main_project}>
             <StatusBar hidden={false} backgroundColor='#FBF8F2' barStyle="dark-content"/>
-                <View style={style.main_view}>
-                    <View style={[style.header_view, style.flex_row]}>
-                        <View style={[style.header_logo, style.flex_row]}>
-                            <Image style={[style.image, style.logo]} source={require('../../public/drawble/img/MaskGroup1.png')} />
-                            <Text style={style.header_logo_text}>Vido Library</Text>
-                        </View>
-                        <View style={[style.header_icon, style.flex_row]}>
-                            <TouchableOpacity
-                            onPress={()=>console.log('bell press')}
-                            >
-                                <Icon name="bell" size={25} color="#000" />
-                            </TouchableOpacity>
-                            <TouchableOpacity
-                            onPress={()=>console.log('search press')}
-                            >
-                                <Icon name="search" size={25} color="#000" />
-                            </TouchableOpacity>
-                        </View>
+            <View style={style.main_view}>
+                <View style={[style.header_view, style.flex_row]}>
+                    <View style={[style.header_logo, style.flex_row]}>
+                        <Image style={[style.image, style.logo]} source={require('../../public/drawble/img/MaskGroup1.png')} />
+                        <Text style={style.header_logo_text}>Vido Library</Text>
                     </View>
-                    <TouchableOpacity 
-                    style={style.banner}
-                    onPress={() => {
-                        navigation.navigate('BookDetailActivity', {
-                            idBook: bookWithMostRating.id
-                        });
-                    }}>
-                        <View style={[{width: '100%', height: '100%'}]}>
-                            <ImageBackground source={{uri: bookWithMostRating.banner}} style={[style.banner_background]}/>
-                            <View style={[style.banner_icon]}>
-                                <Ionicons name="bookmarks-outline" size={30} color="#fff" />
-                            </View>
-                            <View style={[style.banner_title, style.flex_row]}>
-                                <View style={[style.flex_column, style.banner_title_item]}>
-                                    <Text style={[style.banner_title_item_text]}>{bookWithMostRating.title}</Text>
-                                    <Text style={[style.banner_title_item_text]}>{bookWithMostRating.description}</Text>
-                                </View>
-                                <View style={[style.flex_column]}>
-                                    <Text style={[style.banner_title_item_text]}>{bookWithMostRating.author}</Text>
-                                    <StarRating ratings={popularBook.rating}/>
-                                </View>
-                            </View>
-                        </View>
-                    </TouchableOpacity>
-                    <View style={[style.list_book]}>
-                        <Text style={style.list_book_title}>Sách Nổi Bật</Text>
-                        <ScrollView
-                        scrollEnabled={true}
-                        showsHorizontalScrollIndicator={true}
-                        showsVerticalScrollIndicator={true}
+                    <View style={[style.header_icon, style.flex_row]}>
+                        <TouchableOpacity
+                        onPress={()=>console.log('bell press')}
                         >
-                            {books.info.map((e, index)=>
-                                <TouchableOpacity
-                                key={index}
-                                onPress={() => {
-                                    navigation.navigate('BookDetailActivity', {
-                                        idBook: books.info[index].id
-                                    });
-                                }}>
-                                    <View style={[style.flex_row, style.list_book_item]}>
-                                        <Image style={[style.list_book_image]} source={{uri: books.info[index].image}}/>
-                                        <View>
-                                            <Text style={[style.list_book_details]}>{books.info[index].title} </Text>
-                                            <Text style={[style.list_book_details]}>Like: {books.popular.find(popular => popular.id === books.info[index].id) ? books.popular[index].like : ""}</Text>
-                                            <Text style={[style.list_book_details]}>{books.popular.find(popular => popular.id === books.info[index].id) ? <StarRating ratings={books.popular[index].rating}/> : ""}</Text>
-                                        </View>
-                                    </View>
-                                </TouchableOpacity>
-                            )}
-                        </ScrollView>
+                            <Icon name="bell" size={25} color="#000" />
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                        onPress={()=>console.log('search press')}
+                        >
+                            <Icon name="search" size={25} color="#000" />
+                        </TouchableOpacity>
                     </View>
                 </View>
+                <TouchableOpacity 
+                style={style.banner}
+                onPress={() => {
+                    navigation.navigate('BookDetailActivity', {
+                        idBook: bookWithMostRating.id
+                    });
+                }}>
+                    <View style={[{width: '100%', height: '100%'}]}>
+                        <ImageBackground source={{uri: bookWithMostRating.banner}} style={[style.banner_background]}/>
+                        <View style={[style.banner_icon]}>
+                            <Ionicons name="bookmarks-outline" size={30} color="#fff" />
+                        </View>
+                        <View style={[style.banner_title, style.flex_row]}>
+                            <View style={[style.flex_column, style.banner_title_item]}>
+                                <Text style={[style.banner_title_item_text]}>{bookWithMostRating.title}</Text>
+                                <Text style={[style.banner_title_item_text]}>{bookWithMostRating.description}</Text>
+                            </View>
+                            <View style={[style.flex_column]}>
+                                <Text style={[style.banner_title_item_text]}>{bookWithMostRating.author}</Text>
+                                <StarRating ratings={popularBook.rating}/>
+                            </View>
+                        </View>
+                    </View>
+                </TouchableOpacity>
+                <View style={[style.list_book]}>
+                    <Text style={style.list_book_title}>Sách Nổi Bật</Text>
+                    <ScrollView
+                    scrollEnabled={true}
+                    showsHorizontalScrollIndicator={true}
+                    showsVerticalScrollIndicator={true}
+                    >
+                        {books.info.map((e, index)=>
+                            <TouchableOpacity
+                            key={index}
+                            onPress={() => {
+                                navigation.navigate('BookDetailActivity', {
+                                    idBook: books.info[index].id
+                                });
+                            }}>
+                                <View style={[style.flex_row, style.list_book_item]}>
+                                    <Image style={[style.list_book_image]} source={{uri: books.info[index].image}}/>
+                                    <View>
+                                        <Text style={[style.list_book_details]}>{books.info[index].title} </Text>
+                                        <Text style={[style.list_book_details]}>Like: {books.popular.find(popular => popular.id === books.info[index].id) ? books.popular[index].like : ""}</Text>
+                                        <Text style={[style.list_book_details]}>{books.popular.find(popular => popular.id === books.info[index].id) ? <StarRating ratings={books.popular[index].rating}/> : ""}</Text>
+                                    </View>
+                                </View>
+                            </TouchableOpacity>
+                        )}
+                    </ScrollView>
+                </View>
+            </View>
        </SafeAreaView>
     );
 }
@@ -98,7 +98,7 @@ function HomeActivity({navigation}) {
 const style = StyleSheet.create({
     main_project: {
         width:'100%', 
-        height:'100%', 
+        height:'100%',
         backgroundColor:"#FBF8F2"
     },
 

@@ -1,0 +1,5 @@
+- Mỗi sinh viên mượn tối đa 5 quyển/lần
+- Thời gian mượn tối đa 1 tuần (7 ngày), có thể gặp thủ thư để gia hạn
+- Quá thời gian nộp sẽ phạt 5k/quyển
+- Không gây mất trật tự, ồn
+- Không mang đồ ăn, nước ngọt vào thư viện

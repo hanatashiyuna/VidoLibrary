@@ -11,6 +11,7 @@ function RegisterActivity({navigation}) {
     const [getFirshName, setFirshName] = useState('');
     const [getName, setName] = useState('');
     const [getEmail, setEmail] = useState('');
+    const [getPhoneNumber, setPhoneNumber] = useState('');
     const [getPasword, setPasword] = useState('');
     const [checked, setchecked] = useState(false);
     // code set hide password
@@ -29,7 +30,7 @@ function RegisterActivity({navigation}) {
                   <Text style={{ color: '#459173', fontSize:20, fontWeight:'bold', marginBottom:30}}>
                     Đăng Kí
                   </Text>
-                  <View style={{width: '100%', height:40, flexDirection:'row', justifyContent:'space-between'}}>
+                  <View style={{width: '100%', height:40, flexDirection:'row', justifyContent:'space-between', paddingStart:10, paddingEnd:10}}>
                     <View style={{width:'40%', height:40, flexDirection:'row'}}>
                     {/* <Icon style={{marginTop: 10}} name="person" size={24}/> */}
                       <TextInput style={{ color: 'black', width: '100%', height:40, paddingStart:10, fontSize:14, borderBottomWidth: 1, borderBottomColor: 'gray' }}
@@ -52,13 +53,25 @@ function RegisterActivity({navigation}) {
                     </View>
                   </View>
                   
-                  <View style={{width: '98%', height: 40, flexDirection:'row', borderBottomWidth: 1, borderBottomColor: 'gray'}}>
+                  <View style={{width: '98%', height: 40, flexDirection:'row', borderBottomWidth: 1, borderBottomColor: 'gray', marginTop:20}}>
                     {/* <Icon style={{marginTop: 10}} name="mail" size={24}/> */}
                     <TextInput style={{ color: 'black', width: '100%', height:'100%', marginStart:10, fontSize:14 }}
                       autoCapitalize = 'none' 
                       value={getEmail}
                       onChangeText = {setEmail}
                       placeholder="Email"
+                    />
+
+                    
+                  </View>
+
+                  <View style={{width: '98%', height: 40, flexDirection:'row', borderBottomWidth: 1, borderBottomColor: 'gray', marginTop:20}}>
+                    {/* <Icon style={{marginTop: 10}} name="mail" size={24}/> */}
+                    <TextInput style={{ color: 'black', width: '100%', height:'100%', marginStart:10, fontSize:14 }}
+                      autoCapitalize = 'none' 
+                      value={getPhoneNumber}
+                      onChangeText = {setPhoneNumber}
+                      placeholder="PhoneNumber"
                     />
 
                     
@@ -97,7 +110,7 @@ function RegisterActivity({navigation}) {
                        if (getEmail != "" &&
                         getFirshName != "" &&
                         getName != "" &&
-                        getPasword != "" ) {
+                        getPasword != "" && getPhoneNumber ) {
                         navigation.navigate('AccuracyRegisterActivity'
                        ,{
                         email: getEmail,

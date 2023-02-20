@@ -26,10 +26,16 @@ import AccuracyRegisterActivity from './resources/view/accuracy_register_activit
 
 import HomeActivity from './resources/view/home_activity';
 import BookDetailActivity from './resources/view/book_detail_activity';
+import PersonActivity from './resources/view/person_activity';
 
 // QR code
 
 import QRActivity from './resources/view/qr_activity';
+import QRAccount from './resources/models/qrcode_account';
+
+//Màng hình kho sách
+
+import StorageActivity from './resources/view/storage_activity';
 
 const widthWindow = Dimensions.get('window').width;
 const heightWindow = Dimensions.get('window').height;
@@ -79,7 +85,8 @@ function BottomBar() {
           tabBarIcon: ({ color }) => (
               <Icon name="bookmark" color={color} size={30} />
           )
-      }}  component={HomeActivity} />
+      }}  component={StorageActivity} />
+
 
       <Tab.Screen name="QRActivity" component={QRActivity} 
         options={{
@@ -102,12 +109,12 @@ function BottomBar() {
             <Icon name="book" color={color} size={30} />
         )
       }}  component={HomeActivity} />
-        <Tab.Screen name="c" options={{
+        <Tab.Screen name="person" options={{
           tabBarLabel: '',
           tabBarIcon: ({ color }) => (
             <Icon name="user" color={color} size={30} />
         )
-      }}  component={HomeActivity} />
+      }}  component={PersonActivity} />
       {/* <Tab.Screen name="Transfer" options={{
           tabBarLabel: 'Di chuyển',
           tabBarIcon: ({ color }) => (
@@ -124,7 +131,7 @@ function RootComponent({}) {
     return (
         <NavigationContainer>
         {/* Rest of your app code */}
-          <Stack.Navigator initialRouteName="SplashActivity" screenOptions={{headerShown: false}}>
+          <Stack.Navigator initialRouteName="PersonActivity" screenOptions={{headerShown: false}}>
             <Stack.Screen name="SplashActivity" component={SplashActivity} />
             <Stack.Screen name="LoginActivity" component={LoginActivity} />
             <Stack.Screen name="RegisterActivity" component={RegisterActivity} />
@@ -137,6 +144,7 @@ function RootComponent({}) {
             <Stack.Screen name="LocationDetail" component={LocationDetail} /> */}
             <Stack.Screen name="QRActivity" component={QRActivity} />
             {/* <Stack.Screen name="AroundMap" component={AroundMap} /> */}
+            <Stack.Screen name="PersonActivity" component={PersonActivity} />
   
           </Stack.Navigator>
         </NavigationContainer>

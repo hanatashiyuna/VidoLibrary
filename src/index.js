@@ -144,11 +144,8 @@ function RootComponent({}) {
             <Stack.Screen name="LocationDetail" component={LocationDetail} /> */}
             <Stack.Screen name="QRActivity" component={QRActivity} />
             {/* <Stack.Screen name="AroundMap" component={AroundMap} /> */}
-<<<<<<< HEAD
             <Stack.Screen name="PersonActivity" component={PersonActivity} />
   
-=======
->>>>>>> origin/TMTMF202
           </Stack.Navigator>
         </NavigationContainer>
         // <View>

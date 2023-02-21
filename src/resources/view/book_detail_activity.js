@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity, TextInput, Dimensions, SafeAr
 import React, { Component, useState } from 'react';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import data from '../data/data.json';
-import ErrorPage from './error_page';
+import ErrorPage from './asset/error_page';
 import QRCode from 'react-native-qrcode-svg';
 
 const widthWindow = Dimensions.get('window').width;

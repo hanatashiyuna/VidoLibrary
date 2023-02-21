@@ -26,6 +26,8 @@ import AccuracyRegisterActivity from './resources/view/accuracy_register_activit
 
 import HomeActivity from './resources/view/home_activity';
 import BookDetailActivity from './resources/view/book_detail_activity';
+
+//Thông tin user
 import PersonActivity from './resources/view/person_activity';
 
 // QR code
@@ -33,9 +35,11 @@ import PersonActivity from './resources/view/person_activity';
 import QRActivity from './resources/view/qr_activity';
 import QRAccount from './resources/models/qrcode_account';
 
-//Màng hình kho sách
-
+//Màn hình kho sách
 import StorageActivity from './resources/view/storage_activity';
+
+//Nội quy thư viện
+import Rules from './resources/view/asset/rules';
 
 const widthWindow = Dimensions.get('window').width;
 const heightWindow = Dimensions.get('window').height;
@@ -145,7 +149,7 @@ function RootComponent({}) {
             <Stack.Screen name="QRActivity" component={QRActivity} />
             {/* <Stack.Screen name="AroundMap" component={AroundMap} /> */}
             <Stack.Screen name="PersonActivity" component={PersonActivity} />
-  
+            <Stack.Screen name="Rules" component={Rules} />
           </Stack.Navigator>
         </NavigationContainer>
         // <View>

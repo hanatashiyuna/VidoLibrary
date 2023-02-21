@@ -201,7 +201,8 @@
     
     {
       "quantity": 4,
-      "day_borrow": "25/7/2023"
+      "day_borrow": "25/7/2023",
+      "prestige": 100
     }
   ]
 }

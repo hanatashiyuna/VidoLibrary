@@ -10,38 +10,17 @@ const heightWindow = Dimensions.get('window').height;
 
 const user = data.user;
 
-function PersonActivity(navigation) {
+function PersonActivity({navigation}) {
 
-    const user_borrow = user[1].quantity / 5 * 100;
+    const user_borrow = user[1].prestige;
+    const color_chart = user[1].prestige >= 80 ? '#7afd40' : user[1].prestige > 30 ? '#f6b26b' : '#ff0000';
     const appVersion = packageJson.version;
+    const slogan_prestige = [
+        "Bạn đã làm rất tốt để giữ vững uy tín của mình, hãy tiếp tục nỗ lực để duy trì thành tích tuyệt vời này nhé!",
+        "Hãy cố gắng nỗ lực hơn để nâng cao uy tín của mình.",
+        "Uy tín của bạn cần được cải thiện để đạt được kết quả tốt hơn. Hãy cố gắng nỗ lực hơn nhé!"
+    ] ;
     // const tabMenu = ["Thông tin tài khoản", "Quản lý sách của bạn", "Nội quy mượn sách"];
-    // const [selectedTab, setSelectedTab] = useState(0);
-
-    // const userInfo = (
-    //     <View style={[style.user_info_item]}>
-    //         <Text>{user.name}</Text>
-    //         <Text>{user.class}</Text>
-    //         <Text>{user.mssv}</Text>
-    //     </View>
-    // );
-
-    // const manageBook = (
-    //     <View style={[style.user_info_item]}>
-            
-    //     </View>
-    // );
-    
-    // const rules = (
-    //     <View style={[style.user_info_item]}>
-    //         <Text>{user.name}</Text>
-    //     </View>
-    // );
-
-    // const tabInfo = [
-    //     userInfo,
-    //     manageBook,
-    //     rules,
-    // ];
 
     return (
         <SafeAreaView style={[style.main_view]}>
@@ -50,42 +29,17 @@ function PersonActivity(navigation) {
                 <View style={[style.header_view, style.flex_row]}>
                     <View style={[style.header_logo, style.flex_row]}>
                         <Image style={[style.image, style.logo]} source={require('../../public/drawble/img/MaskGroup1.png')} />
-                        <Text style={style.header_logo_text}>{user.name}</Text>
+                        <Text style={style.header_logo_text}>{user[0].name}</Text>
                     </View>
                     <View style={[style.header_icon, style.flex_row]}>
-                        <Text>{user.class}</Text>
+                        <Text>{user[0].class}</Text>
                     </View>
                 </View>
-                {/* <View>
-                    <ScrollView
-                    style={[style.flex_row, style.tabMenu]}
-                    horizontal={true}
-                    showsHorizontalScrollIndicator={false}
-                    showsVerticalScrollIndicator={false}>
-                        {tabMenu.map((e, index) =>
-                            <TouchableOpacity
-                                key={index}
-                                onPress={()=>{
-                                    setSelectedTab(index);
-                                }}
-                                style={[
-                                    style.tough,
-                                    selectedTab === index ? { borderBottomColor: '#f6b26b' } : { borderBottomColor: '#ccc' }
-                                ]}
-                            >
-                                <Text>{tabMenu[index]}</Text>
-                            </TouchableOpacity>
-                            )
-                        }
-                    </ScrollView>
-                </View> */}
                 <View style={[style.user_info]}>
-                    {/* <Text>{tabInfo[selectedTab]}</Text> */}
                     <View style={[style.flex_row, style.chart_card]}>
-                        <View style={[{backgroundColor: 'blue'}]}>
-                            <Text>afeq </Text>
-                            <Text>aasd</Text>
-                            <Text>abvfeubfahbf</Text>
+                        <View style={[{width: '39%', margin: '4%', display: 'flex', justifyContent: 'center', alignItems: 'center'}]}>
+                            <Text>Sách đã mượn: {user[1].quantity}/5</Text>
+                            <Text>{user[1].prestige >= 80 ? slogan_prestige[0] : user[1].prestige > 30 ? slogan_prestige[1] : slogan_prestige[2]}</Text>
                         </View>
                         <View style={{ width: '50%', alignItems: 'center', justifyContent: 'center', margin: '4%'}}>
                             <Pie
@@ -94,19 +48,35 @@ function PersonActivity(navigation) {
                             sections={[
                             {
                                 percentage: user_borrow,
-                                color: '#f6b26b',
+                                color: color_chart,
                             },
                             ]}
                             backgroundColor="#ddd" />
                             <View style={style.gauge}>
-                                <Text style={style.gaugeText}>{user[1].quantity}/5</Text>
+                                <Text style={style.gaugeText}>{user[1].prestige}/100</Text>
                             </View>
                         </View>
                     </View>
+                    <View style={[{backgroundColor: '#fff', padding: '4%', borderRadius: 10, marginTop: '4%'}]}>
+                        <TouchableOpacity
+                        onPress={()=>{
+                            navigation.navigate('Rules');
+                        }}>
+                            <Text>Thông tin tài khoản</Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={[{backgroundColor: '#fff', padding: '4%', borderRadius: 10, marginTop: '4%'}]}>
+                        <TouchableOpacity
+                        onPress={()=>{
+                            navigation.navigate('Rules');
+                        }}>
+                            <Text>Nội quy thư viện</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
                 <View style={[style.log]}>
-                    <Text>Đổi Tài Khoản</Text>
-                    <Text>Đăng Xuất</Text>
+                    <Text style={[{fontSize: 16}]}>Đổi Tài Khoản</Text>
+                    <Text style={[{color: 'red', fontSize: 16}]}>Đăng Xuất</Text>
                     <Text>Version: {appVersion}</Text>
                 </View>
             </View>
@@ -118,7 +88,7 @@ const style = StyleSheet.create({
     main_view: {
         with: widthWindow,
         height: heightWindow,
-        backgroundColor:"#FBF8F2"
+        backgroundColor:"#FBF8F2",
     },
 
     flex_row: {
@@ -181,12 +151,12 @@ const style = StyleSheet.create({
     gaugeText: {
     backgroundColor: 'transparent',
     color: '#000',
-    fontSize: 24,
+    fontSize: 22,
     },
 
     chart_card: {
         height: '40%',
-        borderRadius: 20,
+        borderRadius: 10,
         overflow: 'hidden',
         justifyContent: 'space-between',
         backgroundColor: '#fff'
